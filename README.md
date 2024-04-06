@@ -2,6 +2,7 @@ just a course project in vhdl.
 
 I used `GTKViewer` for unit testing.
 but any ghw viewer can utilize the `.ghw` files.
+Moreover, I use `ghdl` as a vhdl "compiler".
 
 
 Still a newbie in vhdl, coding style is confused for me, especially in a case-insensitive language.
