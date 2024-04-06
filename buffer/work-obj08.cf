@@ -1,7 +1,0 @@
-v 4
-file . "buffer_test.vhd" "92ddbf889179131ef333dbe3a8dba37c9433365b" "20240326170237.926":
-  entity buffer_test at 1( 0) + 0 on 53;
-  architecture buffer_test_arch of buffer_test at 9( 146) + 0 on 54;
-file . "buffer.vhd" "51804d33f4ca69c440b2c7a8e3d4a2cf2bf61c6a" "20240326170237.926":
-  entity nbuffer at 2( 26) + 0 on 55;
-  architecture nbuffer_arch of nbuffer at 18( 370) + 0 on 56;

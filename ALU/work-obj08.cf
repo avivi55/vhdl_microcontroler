@@ -1,7 +1,0 @@
-v 4
-file . "ALU_test.vhd" "16b8d1c4928cd48007b04110ec4daaa07fad67c8" "20240406171818.551":
-  entity alu_test at 2( 28) + 0 on 203;
-  architecture alu_test_arch of alu_test at 10( 161) + 0 on 204;
-file . "ALU.vhd" "6bde5c823f318ea3e8ee1aff8c9af673e7750c84" "20240406171818.552":
-  entity alu at 1( 0) + 0 on 205;
-  architecture alu_arch of alu at 17( 478) + 0 on 206;
