@@ -72,18 +72,21 @@ begin
     proc : process	
     begin
 
-        cache_1_received_sim <= "00000001";
-        cache_2_received_sim <= "00000010";
-        alu_output_sim <= "00000100";
-        for outp in 0 to 3 loop
-            output_selection_sim <= std_logic_vector(to_unsigned(outp, 2));
+        a_in_sim <= "0001";
+        b_in_sim <= "0010";
+        alu_output_sim <= "01000011";
+
+        for route in 0 to 7 loop
+            routing_selection_sim <= std_logic_vector(to_unsigned(route, 4));
             wait for 100 us;
         end loop;
 
-        -- wait for 100 us;
+        cache_1_received_sim <= "10000111";
+        cache_2_received_sim <= "01011010";
 
-        for route in 0 to 15 loop
-                
+        for route in 8 to 15 loop
+            routing_selection_sim <= std_logic_vector(to_unsigned(route, 4));
+            wait for 100 us;
         end loop;
         wait;        
     end process;
