@@ -100,30 +100,30 @@ begin
             when "0010" =>
                 a_buffer <= alu_output(3 downto 0);
                 a_buffer_enable <= '0';
-                current_route <= s_in_buffa_lsb;
+                current_route <= alu_in_buffa_lsb;
             
             when "0011" =>
                 a_buffer <= alu_output(7 downto 4);
                 a_buffer_enable <= '0';
-                current_route <= s_in_buffa_msb;
+                current_route <= alu_in_buffa_msb;
             
             when "0100" =>
                 b_buffer <= alu_output(3 downto 0);
                 b_buffer_enable <= '0';
-                current_route <= s_in_buffb_lsb;
+                current_route <= alu_in_buffb_lsb;
             
             when "0101" =>
                 b_buffer <= alu_output(7 downto 4);
                 b_buffer_enable <= '0';
-                current_route <= s_in_buffb_msb;
+                current_route <= alu_in_buffb_msb;
             
             when "0110" =>
                 cache_1_emmited <= alu_output;
-                current_route <= s_in_cache1;
+                current_route <= alu_in_cache1;
             
             when "0111" =>
                 cache_2_emmited <= alu_output;
-                current_route <= s_in_cache2;
+                current_route <= alu_in_cache2;
             
             when "1000" =>
                 a_buffer <= cache_1_received(3 downto 0);
