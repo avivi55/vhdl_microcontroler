@@ -16,14 +16,13 @@ end entity;
 
 architecture alu_arch of alu is
     type instruction is (nop, rs_a, rs_b, ls_a, ls_b, id_a, id_b, n_a, n_b, a_and_b, a_or_b, a_xor_b, add, add_c, sub, mul);
+    signal current_function: instruction := nop;
 begin
 
     process(a, b, function_selection, carries_received)
         variable bigger_a, bigger_b: std_logic_vector(7 downto 0);
         
         variable left_carry_received, right_carry_received, left_carry_emmited, right_carry_emmited: std_logic;
-
-        signal current_function: instruction := nop;
     begin
         bigger_a(7 downto 4) := (others => a(3));
         bigger_a(3 downto 0) := a;
