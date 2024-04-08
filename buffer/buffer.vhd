@@ -1,4 +1,3 @@
--- Code your design here
 library IEEE;
 use IEEE.std_logic_1164.all;
 
@@ -18,7 +17,7 @@ end entity;
 architecture nbuffer_arch of nbuffer is
 begin
 
-    proc: process (clock, reset)
+    process (clock, reset)
     begin
 
         if reset = '1' then

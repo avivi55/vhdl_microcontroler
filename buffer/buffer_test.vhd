@@ -45,9 +45,9 @@ begin
     clk : process
     begin
     	clock_sim <= '0';
-        wait for 0.8*PERIOD;
+        wait for 0.5*PERIOD;
         clock_sim <= '1';
-        wait for 0.2*PERIOD;
+        wait for 0.5*PERIOD;
 
         if now = (8*(2**N))*PERIOD then
         	wait;

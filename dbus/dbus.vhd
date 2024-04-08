@@ -88,78 +88,91 @@ begin
     route_selector: process(routing_selection, a_in, b_in)
 
     begin
-        a_buffer_enable <= '0';
-        b_buffer_enable <= '0';
+        a_buffer_enable <= '1';
+        b_buffer_enable <= '1';
+        cache_1_enable <= '1';
+        cache_2_enable <= '1';
+        
 
         case routing_selection is
             when "0001" =>
                 b_buffer <= b_in;
-                b_buffer_enable <= '0';
+                --b_buffer_enable <= '0';
                 current_route <= b_in_buffb;
             
             when "0010" =>
                 a_buffer <= alu_output(3 downto 0);
-                a_buffer_enable <= '0';
+                --a_buffer_enable <= '0';
                 current_route <= alu_in_buffa_lsb;
             
             when "0011" =>
                 a_buffer <= alu_output(7 downto 4);
-                a_buffer_enable <= '0';
+                --a_buffer_enable <= '0';
                 current_route <= alu_in_buffa_msb;
             
             when "0100" =>
                 b_buffer <= alu_output(3 downto 0);
-                b_buffer_enable <= '0';
+                --b_buffer_enable <= '0';
                 current_route <= alu_in_buffb_lsb;
             
             when "0101" =>
                 b_buffer <= alu_output(7 downto 4);
-                b_buffer_enable <= '0';
+                --b_buffer_enable <= '0';
                 current_route <= alu_in_buffb_msb;
             
             when "0110" =>
                 cache_1_emmited <= alu_output;
+                --cache_1_enable <= '0';
                 current_route <= alu_in_cache1;
             
             when "0111" =>
                 cache_2_emmited <= alu_output;
+                --cache_2_enable <= '0';
                 current_route <= alu_in_cache2;
             
             when "1000" =>
                 a_buffer <= cache_1_received(3 downto 0);
+                --a_buffer_enable <= '0';
                 current_route <= cache1_in_buffa_lsb;
             
             when "1001" =>
                 a_buffer <= cache_1_received(7 downto 4);
+                --a_buffer_enable <= '0';
                 current_route <= cache1_in_buffa_msb;
             
             when "1010" =>
                 b_buffer <= cache_1_received(3 downto 0);
+                --b_buffer_enable <= '0';
                 current_route <= cache1_in_buffb_lsb;
             
             when "1011" =>
                 b_buffer <= cache_1_received(7 downto 4);
+                --b_buffer_enable <= '0';
                 current_route <= cache1_in_buffb_msb;
             
             when "1100" =>
                 a_buffer <= cache_2_received(3 downto 0);
+                --a_buffer_enable <= '0';
                 current_route <= cache2_in_buffa_lsb;
             
             when "1101" =>
                 a_buffer <= cache_2_received(7 downto 4);
+                --a_buffer_enable <= '0';
                 current_route <= cache2_in_buffa_msb;
             
             when "1110" =>
                 b_buffer <= cache_2_received(3 downto 0);
+                --b_buffer_enable <= '0';
                 current_route <= cache2_in_buffb_lsb;
             
             when "1111" =>
                 b_buffer <= cache_2_received(7 downto 4);
+                --b_buffer_enable <= '0';
                 current_route <= cache2_in_buffb_msb;
 
             when others =>
                 a_buffer <= a_in;
-                a_buffer_enable <= '0';
+                --a_buffer_enable <= '0';
 
                 current_route <= a_in_buffa;
         end case;

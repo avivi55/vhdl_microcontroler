@@ -1,7 +1,7 @@
 VHDL=ghdl
 VHDLFLAGS=-fexplicit --ieee=synopsys --std=08
 
-vhd_files=$(wildcard *.vhd)
+vhd_files=../buffer/buffer.vhd $(wildcard *.vhd)
 
 .PHONY: all
 

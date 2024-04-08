@@ -42,11 +42,27 @@ architecture dbus_route_test_arch of dbus_route_test is
         );
     end component;
 
+    component nbuffer is
+        generic (
+            N : integer := 8
+        );
+        port (
+            e1 : in std_logic_vector (N-1 downto 0);
+            reset : in std_logic;
+            enable : in std_logic;
+            clock : in std_logic;
+            s1 : out std_logic_vector (N-1 downto 0)
+        );
+    end component;
+
     signal cache_1_enable_sim, cache_2_enable_sim, a_buffer_enable_sim, b_buffer_enable_sim : std_logic := '0';
     signal output_selection_sim : std_logic_vector (1 downto 0) := "00";
     signal cache_1_emmited_sim, cache_1_received_sim, cache_2_received_sim, cache_2_emmited_sim, alu_output_sim, final_output_sim : std_logic_vector (7 downto 0) := "00000000";
     signal b_in_sim, a_in_sim, b_buffer_sim, a_buffer_sim, routing_selection_sim : std_logic_vector (3 downto 0) := "0000";
 
+
+    constant PERIOD : time := 100 us;
+    signal clock_sim : std_logic := '0';
 begin
 
     test_component : dbus
@@ -69,6 +85,30 @@ begin
         final_output => final_output_sim
     );
 
+    test_buf : nbuffer
+    port map (
+    	e1 => cache_1_emmited_sim,
+        reset => '0',
+        enable => cache_1_enable_sim,
+        clock => clock_sim,
+        s1 => cache_1_received_sim
+    );
+
+
+    clk : process
+    begin
+    	clock_sim <= '0';
+        wait for 0.5*PERIOD;
+        clock_sim <= '1';
+        wait for 0.5*PERIOD;
+
+        if now = 16*PERIOD then
+        	wait;
+        end if;
+
+    end process;
+
+
     proc : process	
     begin
 
@@ -81,7 +121,7 @@ begin
             wait for 100 us;
         end loop;
 
-        cache_1_received_sim <= "10000111";
+        -- cache_1_received_sim <= "10000111";
         cache_2_received_sim <= "01011010";
 
         for route in 8 to 15 loop
