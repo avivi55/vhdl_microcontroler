@@ -1,22 +1,26 @@
 [*]
 [*] GTKWave Analyzer v3.3.118 (w)1999-2023 BSI
-[*] Mon Apr  8 08:21:45 2024
+[*] Tue Apr 23 15:13:55 2024
 [*]
 [dumpfile] "/home/jacques/Documents/EFREI/S6/circuit2/instructions/res_out.ghw"
-[dumpfile_mtime] "Mon Apr  8 08:20:41 2024"
-[dumpfile_size] 708
+[dumpfile_mtime] "Tue Apr 23 15:12:04 2024"
+[dumpfile_size] 722
 [savefile] "/home/jacques/Documents/EFREI/S6/circuit2/instructions/res.gtkw"
 [timestart] 0
-[size] 1920 1001
-[pos] -51 -51
-*0.000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[size] 2560 1502
+[pos] -1 -1
+*-35.461689 157500000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] top.
 [treeopen] top.instructions_buf_test.
 [treeopen] top.instructions_buf_test.test_component.
-[sst_width] 273
-[signals_width] 214
+[sst_width] 341
+[signals_width] 345
 [sst_expanded] 1
-[sst_vpaned_height] 296
+[sst_vpaned_height] 472
+@28
+top.instructions_buf_test.test_component.clock
+@421
+top.instructions_buf_test.test_component.instruction_pointer
 @28
 #{top.instructions_buf_test.test_component.function_selection[3:0]} top.instructions_buf_test.test_component.function_selection[3] top.instructions_buf_test.test_component.function_selection[2] top.instructions_buf_test.test_component.function_selection[1] top.instructions_buf_test.test_component.function_selection[0]
 #{top.instructions_buf_test.test_component.route_selection[3:0]} top.instructions_buf_test.test_component.route_selection[3] top.instructions_buf_test.test_component.route_selection[2] top.instructions_buf_test.test_component.route_selection[1] top.instructions_buf_test.test_component.route_selection[0]

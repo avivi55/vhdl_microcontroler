@@ -6,6 +6,7 @@ use IEEE.std_logic_signed.all;
 entity instructions_buf is
     port (
         clock : in std_logic;
+        -- adress : in std_logic;
 
         function_selection : out std_logic_vector (3 downto 0);
         route_selection : out std_logic_vector (3 downto 0);
@@ -30,8 +31,11 @@ begin
         output_selection <= matrix(instruction_pointer)(1 downto 0);
 
         if rising_edge(clock) then
-            instruction_pointer <= instruction_pointer + 1; 
+            instruction_pointer <= instruction_pointer + 1 when instruction_pointer < 127 else 0;
         end if;
+        -- if rising_edge(clock) then
+        --     instruction_pointer <= adress when adress < 127 else 0;
+        -- end if;
     end process;
 
 end architecture;

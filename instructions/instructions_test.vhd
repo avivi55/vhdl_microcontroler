@@ -20,7 +20,7 @@ architecture instructions_buf_test_arch of instructions_buf_test is
         );
     end component;
 
-    signal clock_sim : std_logic;
+    signal clock_sim : std_logic := '0';
     signal function_selection_sim : std_logic_vector (3 downto 0);
     signal route_selection_sim : std_logic_vector (3 downto 0);
     signal output_selection_sim : std_logic_vector (1 downto 0);

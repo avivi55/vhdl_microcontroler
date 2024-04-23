@@ -22,7 +22,7 @@ architecture dbus_out_test_arch of dbus_out_test is
             cache_2_enable : out std_logic;
     
             -- Selections
-            output_selection : in std_logic_vector (1 downto 0); -- from buffer
+            outputing_selection : in std_logic_vector (1 downto 0); -- from buffer
             routing_selection : in std_logic_vector (3 downto 0); 
     
             -- ALU (& input buffers)
@@ -57,7 +57,7 @@ begin
         cache_2_received => cache_2_received_sim,
         cache_2_emmited => cache_2_emmited_sim,
         cache_2_enable => cache_2_enable_sim,
-        output_selection => output_selection_sim,
+        outputing_selection => output_selection_sim,
         routing_selection => routing_selection_sim,
         alu_output => alu_output_sim,
         a_buffer_enable => a_buffer_enable_sim,

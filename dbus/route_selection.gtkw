@@ -1,23 +1,23 @@
 [*]
 [*] GTKWave Analyzer v3.3.118 (w)1999-2023 BSI
-[*] Sun Apr  7 09:26:08 2024
+[*] Tue Apr 23 20:43:24 2024
 [*]
 [dumpfile] "/home/jacques/Documents/EFREI/S6/circuit2/dbus/res_route.ghw"
-[dumpfile_mtime] "Sun Apr  7 09:25:41 2024"
-[dumpfile_size] 1939
+[dumpfile_mtime] "Tue Apr 23 20:37:22 2024"
+[dumpfile_size] 1985
 [savefile] "/home/jacques/Documents/EFREI/S6/circuit2/dbus/route_selection.gtkw"
-[timestart] 590600000000
-[size] 1920 1001
+[timestart] 0
+[size] 2560 1502
 [pos] -1 -1
-*-37.147312 907900000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+*-37.147312 793700000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] top.
 [treeopen] top.dbus_route_test.
 [treeopen] top.dbus_route_test.test_buf.
 [treeopen] top.dbus_route_test.test_component.
-[sst_width] 273
+[sst_width] 50
 [signals_width] 320
-[sst_expanded] 1
-[sst_vpaned_height] 479
+[sst_expanded] 0
+[sst_vpaned_height] 764
 @28
 #{top.dbus_route_test.test_component.routing_selection[3:0]} top.dbus_route_test.test_component.routing_selection[3] top.dbus_route_test.test_component.routing_selection[2] top.dbus_route_test.test_component.routing_selection[1] top.dbus_route_test.test_component.routing_selection[0]
 @420
@@ -37,9 +37,9 @@ top.dbus_route_test.test_component.current_route
 #{top.dbus_route_test.test_component.alu_output[7:0]} top.dbus_route_test.test_component.alu_output[7] top.dbus_route_test.test_component.alu_output[6] top.dbus_route_test.test_component.alu_output[5] top.dbus_route_test.test_component.alu_output[4] top.dbus_route_test.test_component.alu_output[3] top.dbus_route_test.test_component.alu_output[2] top.dbus_route_test.test_component.alu_output[1] top.dbus_route_test.test_component.alu_output[0]
 #{top.dbus_route_test.test_component.cache_1_received[7:0]} top.dbus_route_test.test_component.cache_1_received[7] top.dbus_route_test.test_component.cache_1_received[6] top.dbus_route_test.test_component.cache_1_received[5] top.dbus_route_test.test_component.cache_1_received[4] top.dbus_route_test.test_component.cache_1_received[3] top.dbus_route_test.test_component.cache_1_received[2] top.dbus_route_test.test_component.cache_1_received[1] top.dbus_route_test.test_component.cache_1_received[0]
 #{top.dbus_route_test.test_component.cache_2_received[7:0]} top.dbus_route_test.test_component.cache_2_received[7] top.dbus_route_test.test_component.cache_2_received[6] top.dbus_route_test.test_component.cache_2_received[5] top.dbus_route_test.test_component.cache_2_received[4] top.dbus_route_test.test_component.cache_2_received[3] top.dbus_route_test.test_component.cache_2_received[2] top.dbus_route_test.test_component.cache_2_received[1] top.dbus_route_test.test_component.cache_2_received[0]
-@201
+@200
 -
-@22
+@29
 #{top.dbus_route_test.test_buf.s1[7:0]} top.dbus_route_test.test_buf.s1[7] top.dbus_route_test.test_buf.s1[6] top.dbus_route_test.test_buf.s1[5] top.dbus_route_test.test_buf.s1[4] top.dbus_route_test.test_buf.s1[3] top.dbus_route_test.test_buf.s1[2] top.dbus_route_test.test_buf.s1[1] top.dbus_route_test.test_buf.s1[0]
 #{top.dbus_route_test.test_buf.e1[7:0]} top.dbus_route_test.test_buf.e1[7] top.dbus_route_test.test_buf.e1[6] top.dbus_route_test.test_buf.e1[5] top.dbus_route_test.test_buf.e1[4] top.dbus_route_test.test_buf.e1[3] top.dbus_route_test.test_buf.e1[2] top.dbus_route_test.test_buf.e1[1] top.dbus_route_test.test_buf.e1[0]
 @28
