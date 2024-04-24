@@ -1,11 +1,11 @@
 VHDL=ghdl
 VHDLFLAGS=-fexplicit --ieee=synopsys --std=08
 # ARCHITECTURE=microcontroler_arch
-ARCHITECTURE=microcontroler
-vhd_files=$(filter-out $(wildcard ../*/*_test.vhd), $(wildcard ../*/*.vhd))
+ARCHITECTURE=microcontroler_test
+vhd_files=./microcontroler_test.vhd $(filter-out $(wildcard ../*/*_test.vhd), $(wildcard ../*/*.vhd))
 
 .PHONY: all
-all: work elaborate #run
+all: work elaborate run
 
 work:
 	$(VHDL) -a -g $(VHDLFLAGS) $(vhd_files)

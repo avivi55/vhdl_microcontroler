@@ -18,8 +18,16 @@ architecture instructions_buf_arch of instructions_buf is
     type t_matrix is array (0 to 127) of std_logic_vector (9 downto 0);
     signal instruction_pointer : integer := 0;
     constant matrix : t_matrix := (
-        "1101100001",
-        "1101100010",
+        "0000000000", -- a in buf a
+        "0000000100", -- b in buf b 
+        "1111011011", -- a*b,s -> cache1,resout -> s,
+        "0000000000", -- a in buf a
+        "0000000100", -- b in buf b 
+        "1101011000", -- a+b,s -> cache1,resout -> s, 
+        "0000000000",-- a in buf a
+        "0000101000",-- cache1(lsb) in buf b
+        "1011001000",-- a xor b, s(lsb) -> bufa
+        "0111011011",-- not a, s -> cache1, s-> resout
         others => "0000000000"
     );
 begin

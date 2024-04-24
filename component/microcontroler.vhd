@@ -102,8 +102,6 @@ architecture microcontroler_arch of microcontroler is
     cache_2_emmited_sim, 
     alu_output_sim : std_logic_vector (7 downto 0) := (others => '0');
 
-    constant period : time := 50 us;
-
 begin
 
     intructions : instructions_buf
@@ -124,21 +122,22 @@ begin
         s1 => outputing_selection_sim
     );
 
-    fn_sel_buf : nbuffer
-    generic map(n => 4)
-    port map (
-        clock => clock,
-        reset => reset,
-        enable => '1',
-        e1 => function_selection_sim,
-        s1 => functioning_selection_sim
-    );
+    -- fn_sel_buf : nbuffer
+    -- generic map(n => 4)
+    -- port map (
+    --     clock => not clock,
+    --     reset => reset,
+    --     enable => '1',
+    --     e1 => function_selection_sim,
+    --     s1 => functioning_selection_sim
+    -- );
 
     alu_comp : alu
     port map(
         a => a_sim,
         b => b_sim,
-        function_selection => functioning_selection_sim,
+        -- function_selection => functioning_selection_sim,
+        function_selection => function_selection_sim,
         carries_received => carries_received_sim,
         carries_emitted => carries_emitted_sim,
         alu_output  => alu_output_sim
