@@ -1,7 +1,7 @@
-library IEEE;
-use IEEE.std_logic_1164.all;
-use IEEE.numeric_std.all;
-use IEEE.std_logic_signed.all;
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+use ieee.std_logic_signed.all;
 
 entity instructions_buf is
     port (
@@ -14,10 +14,9 @@ entity instructions_buf is
     );
 end entity;
 
-
-
 architecture instructions_buf_arch of instructions_buf is
     
+    -- Concatenates three std_logic_vectors to separate the 3 different selections in the binary instruction
     function to_instr(fcn : std_logic_vector; route : std_logic_vector; outpt : std_logic_vector) return std_logic_vector is
     begin
         return fcn & route & outpt;
@@ -34,7 +33,7 @@ architecture instructions_buf_arch of instructions_buf is
         to_instr("0000", "0110", "01"), -- nop, s -> cache1, resout -> cache1,
         ------------------------------------------------------------------------------------
 
-        
+
         -----------------------not ((a + b) xor a)------------------------------------------
         to_instr("0000", "0000", "00"), -- a in buf a
         to_instr("0000", "0001", "00"), -- b in buf b
