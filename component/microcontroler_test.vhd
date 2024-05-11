@@ -62,8 +62,9 @@ begin
     proc : process
     begin
 
-    	a_in_sim <= "0010";
+    	a_in_sim <= "0101";
     	b_in_sim <= "0011";
+        carries_received_sim <= "00";
 
         wait;
 

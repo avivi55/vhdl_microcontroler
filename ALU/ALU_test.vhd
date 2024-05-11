@@ -53,7 +53,7 @@ begin
                 end loop;
             end loop;
         end loop;
-        wait;        
+        wait;      
     end process;
 
 end architecture;
