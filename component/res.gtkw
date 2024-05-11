@@ -1,25 +1,24 @@
 [*]
 [*] GTKWave Analyzer v3.3.118 (w)1999-2023 BSI
-[*] Wed Apr 24 11:27:51 2024
+[*] Sat May 11 12:48:58 2024
 [*]
 [dumpfile] "/home/jacques/Documents/EFREI/S6/circuit2/component/res_out.ghw"
-[dumpfile_mtime] "Wed Apr 24 11:24:34 2024"
-[dumpfile_size] 5186
+[dumpfile_mtime] "Sat May 11 12:44:09 2024"
+[dumpfile_size] 5965
 [savefile] "/home/jacques/Documents/EFREI/S6/circuit2/component/res.gtkw"
-[timestart] 0
+[timestart] 3480000000000
 [size] 2560 1502
 [pos] -1 -1
-*-36.674103 52600000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
-[treeopen] top.
-[treeopen] top.microcontroler_test.
-[treeopen] top.microcontroler_test.test_component.
+*-36.674103 3682800000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] top.microcontroler_test.test_component.alu_comp.
+[treeopen] top.microcontroler_test.test_component.cache2_buf.
 [sst_width] 50
 [signals_width] 383
 [sst_expanded] 0
 [sst_vpaned_height] 467
 @28
 top.microcontroler_test.test_component.clock
-@c00022
+@c00024
 #{top.microcontroler_test.test_component.final_output[7:0]} top.microcontroler_test.test_component.final_output[7] top.microcontroler_test.test_component.final_output[6] top.microcontroler_test.test_component.final_output[5] top.microcontroler_test.test_component.final_output[4] top.microcontroler_test.test_component.final_output[3] top.microcontroler_test.test_component.final_output[2] top.microcontroler_test.test_component.final_output[1] top.microcontroler_test.test_component.final_output[0]
 @28
 top.microcontroler_test.test_component.final_output[7]
@@ -54,7 +53,7 @@ top.microcontroler_test.test_component.a_in[0]
 -group_end
 @200
 -
-@c00022
+@c00024
 #{top.microcontroler_test.test_component.alu_comp.alu_output[7:0]} top.microcontroler_test.test_component.alu_comp.alu_output[7] top.microcontroler_test.test_component.alu_comp.alu_output[6] top.microcontroler_test.test_component.alu_comp.alu_output[5] top.microcontroler_test.test_component.alu_comp.alu_output[4] top.microcontroler_test.test_component.alu_comp.alu_output[3] top.microcontroler_test.test_component.alu_comp.alu_output[2] top.microcontroler_test.test_component.alu_comp.alu_output[1] top.microcontroler_test.test_component.alu_comp.alu_output[0]
 @28
 top.microcontroler_test.test_component.alu_comp.alu_output[7]
@@ -65,24 +64,24 @@ top.microcontroler_test.test_component.alu_comp.alu_output[3]
 top.microcontroler_test.test_component.alu_comp.alu_output[2]
 top.microcontroler_test.test_component.alu_comp.alu_output[1]
 top.microcontroler_test.test_component.alu_comp.alu_output[0]
-@1401200
+@1401204
 -group_end
 @200
 -
 -BUF B
 @28
 top.microcontroler_test.test_component.b_buf.enable
-@c00022
+@c00025
 [color] 3
 #{top.microcontroler_test.test_component.b_buf.e1[3:0]} top.microcontroler_test.test_component.b_buf.e1[3] top.microcontroler_test.test_component.b_buf.e1[2] top.microcontroler_test.test_component.b_buf.e1[1] top.microcontroler_test.test_component.b_buf.e1[0]
-@28
+@29
 top.microcontroler_test.test_component.b_buf.e1[3]
 top.microcontroler_test.test_component.b_buf.e1[2]
 top.microcontroler_test.test_component.b_buf.e1[1]
 top.microcontroler_test.test_component.b_buf.e1[0]
-@1401200
+@1401205
 -group_end
-@c00022
+@c00025
 [color] 2
 #{top.microcontroler_test.test_component.b_buf.s1[3:0]} top.microcontroler_test.test_component.b_buf.s1[3] top.microcontroler_test.test_component.b_buf.s1[2] top.microcontroler_test.test_component.b_buf.s1[1] top.microcontroler_test.test_component.b_buf.s1[0]
 @28
@@ -90,17 +89,17 @@ top.microcontroler_test.test_component.b_buf.s1[3]
 top.microcontroler_test.test_component.b_buf.s1[2]
 top.microcontroler_test.test_component.b_buf.s1[1]
 top.microcontroler_test.test_component.b_buf.s1[0]
-@1401200
+@1401205
 -group_end
 @200
 -
 -BUF A
 @28
 top.microcontroler_test.test_component.a_buf.enable
-@22
+@24
 [color] 3
 #{top.microcontroler_test.test_component.a_buf.e1[3:0]} top.microcontroler_test.test_component.a_buf.e1[3] top.microcontroler_test.test_component.a_buf.e1[2] top.microcontroler_test.test_component.a_buf.e1[1] top.microcontroler_test.test_component.a_buf.e1[0]
-@c00022
+@c00024
 [color] 2
 #{top.microcontroler_test.test_component.a_buf.s1[3:0]} top.microcontroler_test.test_component.a_buf.s1[3] top.microcontroler_test.test_component.a_buf.s1[2] top.microcontroler_test.test_component.a_buf.s1[1] top.microcontroler_test.test_component.a_buf.s1[0]
 @28
@@ -108,14 +107,14 @@ top.microcontroler_test.test_component.a_buf.s1[3]
 top.microcontroler_test.test_component.a_buf.s1[2]
 top.microcontroler_test.test_component.a_buf.s1[1]
 top.microcontroler_test.test_component.a_buf.s1[0]
-@1401200
+@1401204
 -group_end
 @200
 -
 -CACHE 1
 @28
 top.microcontroler_test.test_component.cache1_buf.enable
-@c00022
+@c00024
 [color] 3
 #{top.microcontroler_test.test_component.cache1_buf.e1[7:0]} top.microcontroler_test.test_component.cache1_buf.e1[7] top.microcontroler_test.test_component.cache1_buf.e1[6] top.microcontroler_test.test_component.cache1_buf.e1[5] top.microcontroler_test.test_component.cache1_buf.e1[4] top.microcontroler_test.test_component.cache1_buf.e1[3] top.microcontroler_test.test_component.cache1_buf.e1[2] top.microcontroler_test.test_component.cache1_buf.e1[1] top.microcontroler_test.test_component.cache1_buf.e1[0]
 @28
@@ -127,19 +126,44 @@ top.microcontroler_test.test_component.cache1_buf.e1[3]
 top.microcontroler_test.test_component.cache1_buf.e1[2]
 top.microcontroler_test.test_component.cache1_buf.e1[1]
 top.microcontroler_test.test_component.cache1_buf.e1[0]
-@1401200
+@1401204
 -group_end
-@22
+@24
 [color] 2
 #{top.microcontroler_test.test_component.cache1_buf.s1[7:0]} top.microcontroler_test.test_component.cache1_buf.s1[7] top.microcontroler_test.test_component.cache1_buf.s1[6] top.microcontroler_test.test_component.cache1_buf.s1[5] top.microcontroler_test.test_component.cache1_buf.s1[4] top.microcontroler_test.test_component.cache1_buf.s1[3] top.microcontroler_test.test_component.cache1_buf.s1[2] top.microcontroler_test.test_component.cache1_buf.s1[1] top.microcontroler_test.test_component.cache1_buf.s1[0]
 @200
 -
-@421
+-CACHE 2
+@28
+top.microcontroler_test.test_component.cache2_buf.enable
+@24
+[color] 3
+#{top.microcontroler_test.test_component.cache2_buf.e1[7:0]} top.microcontroler_test.test_component.cache2_buf.e1[7] top.microcontroler_test.test_component.cache2_buf.e1[6] top.microcontroler_test.test_component.cache2_buf.e1[5] top.microcontroler_test.test_component.cache2_buf.e1[4] top.microcontroler_test.test_component.cache2_buf.e1[3] top.microcontroler_test.test_component.cache2_buf.e1[2] top.microcontroler_test.test_component.cache2_buf.e1[1] top.microcontroler_test.test_component.cache2_buf.e1[0]
+@c00024
+[color] 2
+#{top.microcontroler_test.test_component.cache2_buf.s1[7:0]} top.microcontroler_test.test_component.cache2_buf.s1[7] top.microcontroler_test.test_component.cache2_buf.s1[6] top.microcontroler_test.test_component.cache2_buf.s1[5] top.microcontroler_test.test_component.cache2_buf.s1[4] top.microcontroler_test.test_component.cache2_buf.s1[3] top.microcontroler_test.test_component.cache2_buf.s1[2] top.microcontroler_test.test_component.cache2_buf.s1[1] top.microcontroler_test.test_component.cache2_buf.s1[0]
+@28
+top.microcontroler_test.test_component.cache2_buf.s1[7]
+top.microcontroler_test.test_component.cache2_buf.s1[6]
+top.microcontroler_test.test_component.cache2_buf.s1[5]
+top.microcontroler_test.test_component.cache2_buf.s1[4]
+top.microcontroler_test.test_component.cache2_buf.s1[3]
+top.microcontroler_test.test_component.cache2_buf.s1[2]
+top.microcontroler_test.test_component.cache2_buf.s1[1]
+top.microcontroler_test.test_component.cache2_buf.s1[0]
+@1401204
+-group_end
+@200
+-
+@420
 [color] 5
 top.microcontroler_test.test_component.alu_comp.current_function
 [color] 5
 top.microcontroler_test.test_component.dbus_comp.current_output
 [color] 5
 top.microcontroler_test.test_component.dbus_comp.current_route
+@200
+-
+-
 [pattern_trace] 1
 [pattern_trace] 0
