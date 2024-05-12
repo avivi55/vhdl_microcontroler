@@ -7,7 +7,6 @@ entity instructions_buf is
     port (
         clock : in std_logic;
         program_choice : in std_logic_vector (1 downto 0);
-
         function_selection : out std_logic_vector (3 downto 0);
         route_selection : out std_logic_vector (3 downto 0);
         output_selection : out std_logic_vector (1 downto 0)

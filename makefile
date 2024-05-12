@@ -1,4 +1,2 @@
-GARBAGE_FILES= $(wildcard ./*/*.cf) $(wildcard ./*.cf)
-
-clean:
-	rm $(GARBAGE_FILES)
+test:
+	$(MAKE) -C microcontroler all

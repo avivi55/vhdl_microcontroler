@@ -2,14 +2,14 @@ VHDL=ghdl
 VHDLFLAGS=-fexplicit --ieee=synopsys --std=08
 COMPONENT=alu
 
-VHD_FILES=$(wildcard *.vhd)
+VHDL_FILES=$(wildcard *.vhd)
 
 .PHONY: all
 
 all: work test wave clean
 
 work:
-	$(VHDL) -a -g $(VHDLFLAGS) $(VHD_FILES)
+	$(VHDL) -a -g $(VHDLFLAGS) $(VHDL_FILES)
 
 test:
 	@echo "================================TEST================================"

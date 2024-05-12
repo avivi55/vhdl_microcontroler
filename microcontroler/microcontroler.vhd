@@ -42,10 +42,11 @@ architecture microcontroler_arch of microcontroler is
             alu_output : out std_logic_vector (7 downto 0)
         );
     end component;
+
     component instructions_buf is
         port (
             clock : in std_logic;
-
+            program_choice : in std_logic_vector (1 downto 0);
             function_selection : out std_logic_vector (3 downto 0);
             route_selection : out std_logic_vector (3 downto 0);
             output_selection : out std_logic_vector (1 downto 0)
@@ -84,6 +85,7 @@ architecture microcontroler_arch of microcontroler is
     output_selection_sim,
     carries_emitted_sim,
     outputing_selection_sim,
+    program_choice_sim,
     carries_received_sim : std_logic_vector (1 downto 0) := (others => '0');
     
     signal 
@@ -108,6 +110,7 @@ begin
     port map (
         clock => clock,
         function_selection => function_selection_sim,
+        program_choice => program_choice_sim,
         route_selection => route_selection_sim,
         output_selection => output_selection_sim
     );
@@ -137,7 +140,6 @@ begin
         a => a_sim,
         b => b_sim,
         function_selection => functioning_selection_sim,
-        -- function_selection => function_selection_sim,
         carries_received => carries_received_sim,
         carries_emitted => carries_emitted_sim,
         alu_output  => alu_output_sim

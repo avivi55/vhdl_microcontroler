@@ -1,19 +1,27 @@
 VHDL=ghdl
 VHDLFLAGS=-fexplicit --ieee=synopsys --std=08
-ARCHITECTURE=microcontroler_test
-vhd_files= $(filter-out $(wildcard ../*/*_test.vhd), $(wildcard ../*/*.vhd))
+VHDL_FILES= ./microcontroler_wave.vhd $(filter-out $(wildcard ../*/*_wave.vhd), $(wildcard ../*/*.vhd))
+
+COMPONENT=microcontroler
+COMPONENTS=alu buffer dbus instructions 
 
 .PHONY: all
-all: work elaborate run clean
+all: work test wave clean
 
 work:
-	$(VHDL) -a -g $(VHDLFLAGS) $(vhd_files)
+	$(VHDL) -a -g $(VHDLFLAGS) $(VHDL_FILES)
 
-elaborate:
-	$(VHDL) -e $(VHDLFLAGS) $(ARCHITECTURE)
+test:
+	@echo "================================TEST================================"	
+	@$(foreach comp,\
+		$(COMPONENTS),\
+		echo "#####$(comp)######";$(VHDL) --elab-run $(VHDLFLAGS) $(comp)_test; echo "################";\
+	)
+	@echo "================================TEST================================"
+	@echo ""
 
-run:
-	$(VHDL) -r $(VHDLFLAGS) $(ARCHITECTURE) --wave=waves/wave.ghw
+wave:
+	$(VHDL) --elab-run $(VHDLFLAGS) $(COMPONENT) --wave=waves/wave.ghw
 
 clean:
 	rm *.cf
