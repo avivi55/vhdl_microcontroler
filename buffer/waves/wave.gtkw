@@ -1,0 +1,33 @@
+[*]
+[*] GTKWave Analyzer v3.3.118 (w)1999-2023 BSI
+[*] Sun May 12 10:54:23 2024
+[*]
+[dumpfile] "/home/jacques/Documents/EFREI/S6/circuit2/buffer/waves/wave.ghw"
+[dumpfile_mtime] "Sun May 12 10:52:40 2024"
+[dumpfile_size] 3165
+[savefile] "/home/jacques/Documents/EFREI/S6/circuit2/buffer/waves/wave.gtkw"
+[timestart] 0
+[size] 2560 1502
+[pos] -27 -24
+*-40.159927 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] top.
+[treeopen] top.buffer_wave.
+[treeopen] top.buffer_wave.test_component.
+[sst_width] 97
+[signals_width] 107
+[sst_expanded] 0
+[sst_vpaned_height] 467
+@28
+[color] 5
+top.buffer_wave.test_component.reset
+[color] 5
+top.buffer_wave.test_component.enable
+top.buffer_wave.test_component.clock
+@24
+[color] 2
+#{top.buffer_wave.test_component.s1[3:0]} top.buffer_wave.test_component.s1[3] top.buffer_wave.test_component.s1[2] top.buffer_wave.test_component.s1[1] top.buffer_wave.test_component.s1[0]
+@25
+[color] 3
+#{top.buffer_wave.test_component.e1[3:0]} top.buffer_wave.test_component.e1[3] top.buffer_wave.test_component.e1[2] top.buffer_wave.test_component.e1[1] top.buffer_wave.test_component.e1[0]
+[pattern_trace] 1
+[pattern_trace] 0

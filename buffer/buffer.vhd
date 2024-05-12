@@ -1,16 +1,16 @@
-library IEEE;
-use IEEE.std_logic_1164.all;
+library ieee;
+use ieee.std_logic_1164.all;
 
 entity nbuffer is
     generic (
-        N : integer := 4
+        n : integer := 4
     );
     port (
-        e1 : in std_logic_vector (N-1 downto 0);
+        e1 : in std_logic_vector (n-1 downto 0);
         reset : in std_logic;
         enable : in std_logic;
         clock : in std_logic;
-        s1 : out std_logic_vector (N-1 downto 0)
+        s1 : out std_logic_vector (n-1 downto 0)
     );
 end entity;
 

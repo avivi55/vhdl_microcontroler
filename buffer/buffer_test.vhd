@@ -1,7 +1,7 @@
-library IEEE;
-use IEEE.std_logic_1164.all;
-use IEEE.numeric_std.all;
-use IEEE.std_logic_unsigned.all;
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+use ieee.std_logic_unsigned.all;
 
 entity buffer_test is
 end entity;
@@ -10,7 +10,7 @@ architecture buffer_test_arch of buffer_test is
 
     component nbuffer is
         generic (
-            N : integer := 4
+            N : integer := 2
         );
         port (
             e1 : in std_logic_vector (N-1 downto 0);
@@ -21,55 +21,93 @@ architecture buffer_test_arch of buffer_test is
         );
     end component;
 
-    constant N : integer := 4;
+    constant N : integer := 2;
 
-    constant PERIOD : time := 50 us;
+    constant PERIOD : time := 100 us;
 
     signal e1_sim, s1_sim : std_logic_vector(N-1 downto 0) := (others => '0');
     signal reset_sim, enable_sim, clock_sim : std_logic := '0';
+
+    signal test_clk_sig: integer := 0;
+    signal test_tmp_sig: std_logic_vector(N-1 downto 0);
+    signal tests_finished, test_enable_finished, test_reset_finished: boolean := false;
+
+
+    procedure test(test: boolean; false_string: string; true_string: string) is
+    begin
+        if test then 
+            report true_string;
+        else 
+            report false_string severity error;
+        end if;        
+    end procedure;
+
 
 begin
 
     test_component : nbuffer
     generic map (
-    	N => N
+        N => 2
     )
     port map (
-    	e1 => e1_sim,
+        e1 => e1_sim,
         reset => reset_sim,
         enable => enable_sim,
         clock => clock_sim,
         s1 => s1_sim
     );
 
+    tests_finished <= test_enable_finished and test_reset_finished;
+
     clk : process
     begin
-    	clock_sim <= '0';
+        clock_sim <= '0';
         wait for 0.5*PERIOD;
         clock_sim <= '1';
         wait for 0.5*PERIOD;
 
-        if now = (8*(2**N))*PERIOD then
-        	wait;
+        if tests_finished = true then
+            wait;
         end if;
 
     end process;
 
+    test_clk_sig <= test_clk_sig + 1 when falling_edge(clock_sim) else test_clk_sig;
 
-    proc : process
+    tests : process(test_clk_sig)
     begin
+        
+        if test_clk_sig = 1 then
+            enable_sim <= '1';
+            e1_sim <= "10";
+        end if;
 
-    	for i in 1 downto 0 loop
-        	for j in 1 downto 0 loop
-            	for k in 0 to (2**N)-1 loop
-                   	e1_sim <= std_logic_vector(to_unsigned(k,N));
-               		enable_sim <= to_unsigned(j,1)(0);
-                    reset_sim <= to_unsigned(i,1)(0);
-                 	wait for 2*PERIOD;
-          		end loop;
-            end loop;
-        end loop;
-        wait;
+        if test_clk_sig = 3 then
+            assert s1_sim = "10" report "enable_on: test failed !" severity error;
+            report "enable_on: test passed";
+        end if;
+        
+        if test_clk_sig = 4 then
+            enable_sim <= '0';
+            e1_sim <= "11";
+        end if;
+        
+        if test_clk_sig = 5 then
+            assert  s1_sim = "10" report "enable_off: test failed !" severity error;
+            report "enable_off: test passed";
+
+            test_enable_finished <= true;
+        end if;
+
+        if test_clk_sig = 6 then
+            reset_sim <= '1';
+        end if;
+
+        if test_clk_sig = 7 then
+            test(s1_sim = "00", "reset: test failed !", "reset: test passed");
+
+            test_reset_finished <= true;
+        end if;
 
     end process;
 
