@@ -63,7 +63,6 @@ architecture dbus_arch of dbus is
 
 begin
     output_selector: process(outputing_selection, alu_output, cache_1_received, cache_2_received)
-
     begin
         case outputing_selection is
             when "01" =>
@@ -96,10 +95,6 @@ begin
                 cache_1_enable <= '0';
                 cache_2_enable <= '0';
 
-                a_buffer <= "0000";
-                cache_1_emmited <= "00000000";
-                cache_2_emmited <= "00000000";
-
                 current_route <= b_in_buffb;
             
             when "0010" =>
@@ -109,10 +104,6 @@ begin
                 b_buffer_enable <= '0';
                 cache_1_enable <= '0';
                 cache_2_enable <= '0';
-
-                b_buffer <= "0000";
-                cache_1_emmited <= "00000000";
-                cache_2_emmited <= "00000000";
 
                 current_route <= alu_in_buffa_lsb;
             
@@ -124,10 +115,6 @@ begin
                 cache_1_enable <= '0';
                 cache_2_enable <= '0';
 
-                b_buffer <= "0000";
-                cache_1_emmited <= "00000000";
-                cache_2_emmited <= "00000000";
-
                 current_route <= alu_in_buffa_msb;
             
             when "0100" =>
@@ -137,10 +124,6 @@ begin
                 a_buffer_enable <= '0';
                 cache_1_enable <= '0';
                 cache_2_enable <= '0';
-
-                a_buffer <= "0000";
-                cache_1_emmited <= "00000000";
-                cache_2_emmited <= "00000000";
 
                 current_route <= alu_in_buffb_lsb;
             
@@ -152,10 +135,6 @@ begin
                 cache_1_enable <= '0';
                 cache_2_enable <= '0';
 
-                a_buffer <= "0000";
-                cache_1_emmited <= "00000000";
-                cache_2_emmited <= "00000000";
-                
                 current_route <= alu_in_buffb_msb;
             
             when "0110" =>
@@ -165,10 +144,6 @@ begin
                 a_buffer_enable <= '0';
                 b_buffer_enable <= '0';
                 cache_2_enable <= '0';
-
-                a_buffer <= "0000";
-                b_buffer <= "0000";
-                cache_2_emmited <= "00000000";
 
                 current_route <= alu_in_cache1;
             
@@ -180,10 +155,6 @@ begin
                 b_buffer_enable <= '0';
                 cache_1_enable <= '0';
 
-                a_buffer <= "0000";
-                b_buffer <= "0000";
-                cache_1_emmited <= "00000000";
-                
                 current_route <= alu_in_cache2;
             
             when "1000" =>
@@ -193,10 +164,6 @@ begin
                 b_buffer_enable <= '0';
                 cache_1_enable <= '0';
                 cache_2_enable <= '0';
-
-                b_buffer <= "0000";
-                cache_1_emmited <= "00000000";
-                cache_2_emmited <= "00000000";
 
                 current_route <= cache1_in_buffa_lsb;
             
@@ -208,10 +175,6 @@ begin
                 cache_1_enable <= '0';
                 cache_2_enable <= '0';
 
-                b_buffer <= "0000";
-                cache_1_emmited <= "00000000";
-                cache_2_emmited <= "00000000";
-
                 current_route <= cache1_in_buffa_msb;
             
             when "1010" =>
@@ -221,10 +184,6 @@ begin
                 a_buffer_enable <= '0';
                 cache_1_enable <= '0';
                 cache_2_enable <= '0';
-
-                a_buffer <= "0000";
-                cache_1_emmited <= "00000000";
-                cache_2_emmited <= "00000000";
 
                 current_route <= cache1_in_buffb_lsb;
             
@@ -236,10 +195,6 @@ begin
                 cache_1_enable <= '0';
                 cache_2_enable <= '0';
 
-                a_buffer <= "0000";
-                cache_1_emmited <= "00000000";
-                cache_2_emmited <= "00000000";
-
                 current_route <= cache1_in_buffb_msb;
             
             when "1100" =>
@@ -249,10 +204,6 @@ begin
                 b_buffer_enable <= '0';
                 cache_1_enable <= '0';
                 cache_2_enable <= '0';
-
-                b_buffer <= "0000";
-                cache_1_emmited <= "00000000";
-                cache_2_emmited <= "00000000";
 
                 current_route <= cache2_in_buffa_lsb;
             
@@ -264,10 +215,6 @@ begin
                 cache_1_enable <= '0';
                 cache_2_enable <= '0';
 
-                b_buffer <= "0000";
-                cache_1_emmited <= "00000000";
-                cache_2_emmited <= "00000000";
-
                 current_route <= cache2_in_buffa_msb;
             
             when "1110" =>
@@ -277,10 +224,6 @@ begin
                 a_buffer_enable <= '0';
                 cache_1_enable <= '0';
                 cache_2_enable <= '0';
-
-                a_buffer <= "0000";
-                cache_1_emmited <= "00000000";
-                cache_2_emmited <= "00000000";
 
                 current_route <= cache2_in_buffb_lsb;
             
@@ -292,10 +235,6 @@ begin
                 cache_1_enable <= '0';
                 cache_2_enable <= '0';
 
-                a_buffer <= "0000";
-                cache_1_emmited <= "00000000";
-                cache_2_emmited <= "00000000";
-
                 current_route <= cache2_in_buffb_msb;
 
             when others =>
@@ -305,10 +244,6 @@ begin
                 b_buffer_enable <= '0';
                 cache_1_enable <= '0';
                 cache_2_enable <= '0';
-
-                b_buffer <= "0000";
-                cache_1_emmited <= "00000000";
-                cache_2_emmited <= "00000000";
 
                 current_route <= a_in_buffa;
         end case;

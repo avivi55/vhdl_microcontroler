@@ -1,0 +1,57 @@
+[*]
+[*] GTKWave Analyzer v3.3.118 (w)1999-2023 BSI
+[*] Sun May 12 12:39:36 2024
+[*]
+[dumpfile] "/home/jacques/Documents/EFREI/S6/circuit2/alu/waves/wave.ghw"
+[dumpfile_mtime] "Sun May 12 12:38:05 2024"
+[dumpfile_size] 210007
+[savefile] "/home/jacques/Documents/EFREI/S6/circuit2/alu/waves/res.gtkw"
+[timestart] 101789500000000
+[size] 2560 1502
+[pos] -1 -1
+*-37.100494 102400000000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] top.
+[treeopen] top.alu_wave.
+[treeopen] top.alu_wave.test_component.
+[sst_width] 341
+[signals_width] 538
+[sst_expanded] 1
+[sst_vpaned_height] 615
+@200
+-OUT
+-
+-IN
+@800200
+-top.alu_test.test_component.a[3:0]
+@1000200
+-group_end
+@800200
+-top.alu_test.test_component.b[3:0]
+@1000200
+-group_end
+@28
+#{top.alu_wave.test_component.alu_output[7:0]} top.alu_wave.test_component.alu_output[7] top.alu_wave.test_component.alu_output[6] top.alu_wave.test_component.alu_output[5] top.alu_wave.test_component.alu_output[4] top.alu_wave.test_component.alu_output[3] top.alu_wave.test_component.alu_output[2] top.alu_wave.test_component.alu_output[1] top.alu_wave.test_component.alu_output[0]
+@c00028
+#{top.alu_wave.test_component.b[3:0]} top.alu_wave.test_component.b[3] top.alu_wave.test_component.b[2] top.alu_wave.test_component.b[1] top.alu_wave.test_component.b[0]
+@28
+top.alu_wave.test_component.b[3]
+top.alu_wave.test_component.b[2]
+top.alu_wave.test_component.b[1]
+top.alu_wave.test_component.b[0]
+@1401208
+-group_end
+@29
+#{top.alu_wave.test_component.a[3:0]} top.alu_wave.test_component.a[3] top.alu_wave.test_component.a[2] top.alu_wave.test_component.a[1] top.alu_wave.test_component.a[0]
+@28
+#{top.alu_wave.test_component.function_selection[3:0]} top.alu_wave.test_component.function_selection[3] top.alu_wave.test_component.function_selection[2] top.alu_wave.test_component.function_selection[1] top.alu_wave.test_component.function_selection[0]
+@200
+-
+-AUX
+@c00200
+-top.alu_test.test_component.a[3:0]
+@1401200
+-group_end
+@200
+-
+[pattern_trace] 1
+[pattern_trace] 0

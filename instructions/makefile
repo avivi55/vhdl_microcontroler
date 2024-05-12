@@ -1,18 +1,26 @@
 VHDL=ghdl
 VHDLFLAGS=-fexplicit --ieee=synopsys --std=08
+COMPONENT=instructions
 
-vhd_files=$(wildcard *.vhd)
+VHD_FILES=$(wildcard *.vhd)
 
 .PHONY: all
 
-all: work elaborate run
+all: work test wave clean
 
 work:
-	$(VHDL) -a -g $(VHDLFLAGS) $(vhd_files)
+	$(VHDL) -a -g $(VHDLFLAGS) $(VHD_FILES)
 
-elaborate:
-	$(VHDL) -e $(VHDLFLAGS) instructions_buf_test
+test:
+	@echo "================================TEST================================"
+	$(VHDL) --elab-run $(VHDLFLAGS) $(COMPONENT)_test 
+	@echo "================================TEST================================"
+	@echo ""
 
-run:
-	$(VHDL) -r $(VHDLFLAGS) instructions_buf_test --wave=res_out.ghw
+wave:
+	@echo "--------------------------------WAVE--------------------------------"
+	$(VHDL) --elab-run $(VHDLFLAGS) $(COMPONENT)_wave --wave=waves/wave.ghw
+	@echo "--------------------------------WAVE--------------------------------"
 
+clean:
+	rm *.cf

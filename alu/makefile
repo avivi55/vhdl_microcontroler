@@ -1,6 +1,6 @@
 VHDL=ghdl
 VHDLFLAGS=-fexplicit --ieee=synopsys --std=08
-COMPONENT=dbus
+COMPONENT=alu
 
 VHD_FILES=$(wildcard *.vhd)
 

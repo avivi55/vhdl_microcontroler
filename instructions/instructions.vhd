@@ -6,7 +6,7 @@ use ieee.std_logic_signed.all;
 entity instructions_buf is
     port (
         clock : in std_logic;
-        -- adress : in std_logic;
+        program_choice : in std_logic_vector (1 downto 0);
 
         function_selection : out std_logic_vector (3 downto 0);
         route_selection : out std_logic_vector (3 downto 0);
@@ -22,18 +22,22 @@ architecture instructions_buf_arch of instructions_buf is
         return fcn & route & outpt;
     end function;
 
-    type t_matrix is array (0 to 127) of std_logic_vector (9 downto 0);
     signal instruction_pointer : integer := 0;
-    constant matrix : t_matrix := (
 
+    type t_matrix is array (0 to 127) of std_logic_vector (9 downto 0);
+
+    constant a_times_b : t_matrix := (
         -----------------------------------a * b--------------------------------------------
         to_instr("0000", "0000", "00"), -- a in buf a
         to_instr("0000", "0001", "00"), -- b in buf b 
         to_instr("1111", "0110", "00"), -- a*b, s -> cache1, nop,
         to_instr("0000", "0110", "01"), -- nop, s -> cache1, resout -> cache1,
         ------------------------------------------------------------------------------------
+        
+        others => "0000000011"
+    );
 
-
+    constant a_plus_b_xnor_a : t_matrix := (
         -----------------------not ((a + b) xor a)------------------------------------------
         to_instr("0000", "0000", "00"), -- a in buf a
         to_instr("0000", "0001", "00"), -- b in buf b
@@ -49,8 +53,11 @@ architecture instructions_buf_arch of instructions_buf is
         to_instr("0000", "1100", "00"),-- nop , cache2(lsb) -> bufa, nop
         to_instr("0111", "0110", "11"),-- not bufa, s -> cache1, s-> resout
         ------------------------------------------------------------------------------------
+        
+        others => "0000000011"
+    );
 
-
+    constant a0_and_b1_or_a1_and_b0 : t_matrix := (
         ----------------------(a(0) and b(1)) or (b(0) and a(1))-----------------------------
         -------isolating a(0)-------
         to_instr("0000", "0000", "00"), -- nop, a in buf a, nop
@@ -152,12 +159,26 @@ architecture instructions_buf_arch of instructions_buf is
         ----------------------------
         ------------------------------------------------------------------------------------
 
-        others => "0000000000"
+        others => "0000000011"
     );
+
 begin
 
     process(clock)
+        variable matrix : t_matrix := (others => "0000000011");
     begin
+        case program_choice is
+            when "00" =>
+                matrix := a_times_b;
+            when "01" => 
+                matrix := a_plus_b_xnor_a;
+            when "10" => 
+                matrix := a0_and_b1_or_a1_and_b0;
+            when others =>
+                matrix := (others => "0000000011");
+        end case;
+
+
         function_selection <= matrix(instruction_pointer)(9 downto 6);
         route_selection <= matrix(instruction_pointer)(5 downto 2);
         output_selection <= matrix(instruction_pointer)(1 downto 0);

@@ -41,28 +41,28 @@ begin
                 right_carry_emmited := a(0);
                 alu_output(2 downto 0) <= a(3 downto 1);
                 alu_output(3) <= left_carry_received;
-                alu_output(7 downto 4) <= (others => '0');
+                alu_output(7 downto 4) <= (others => left_carry_received);
                 
                 current_function <= rs_a;
             when "0010" => -- sur 4b
                 left_carry_emmited := a(3);
                 alu_output(3 downto 1) <= a(2 downto 0);
                 alu_output(0) <= right_carry_received;
-                alu_output(7 downto 4) <= (others => '0');
+                alu_output(7 downto 4) <= (others => a(2));
 
                 current_function <= ls_a;
             when "0011" =>
                 right_carry_emmited := b(0);
                 alu_output(2 downto 0) <= b(3 downto 1);
                 alu_output(3) <= left_carry_received;
-                alu_output(7 downto 4) <= (others => '0');
+                alu_output(7 downto 4) <= (others => left_carry_received);
 
                 current_function <= rs_b;
             when "0100" => -- sur 4b
                 left_carry_emmited := b(3);
                 alu_output(3 downto 1) <= b(2 downto 0);
                 alu_output(0) <= right_carry_received;
-                alu_output(7 downto 4) <= (others => '0');
+                alu_output(7 downto 4) <= (others => b(2));
 
                 current_function <= ls_b;
             when "0101" =>

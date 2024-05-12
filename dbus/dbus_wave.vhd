@@ -1,14 +1,13 @@
--- Code your testbench here
-library IEEE;
-use IEEE.std_logic_1164.all;
-use IEEE.numeric_std.all;
-use IEEE.std_logic_signed.all;
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+use ieee.std_logic_signed.all;
 
-entity dbus_out_test is
+entity dbus_wave is
 
 end entity;
 
-architecture dbus_out_test_arch of dbus_out_test is
+architecture dbus_wave_arch of dbus_wave is
 
 	component dbus is
         port (
@@ -16,29 +15,42 @@ architecture dbus_out_test_arch of dbus_out_test is
             cache_1_received : in std_logic_vector (7 downto 0); -- from buffer
             cache_1_emmited : out std_logic_vector (7 downto 0);
             cache_1_enable : out std_logic;
-            
+
             cache_2_received : in std_logic_vector (7 downto 0); -- from buffer
             cache_2_emmited : out std_logic_vector (7 downto 0);
             cache_2_enable : out std_logic;
-    
+
             -- Selections
             outputing_selection : in std_logic_vector (1 downto 0); -- from buffer
-            routing_selection : in std_logic_vector (3 downto 0); 
-    
+            routing_selection : in std_logic_vector (3 downto 0);
+
             -- ALU (& input buffers)
             alu_output : in std_logic_vector (7 downto 0);
-            
+
             a_buffer_enable : out std_logic;
             a_buffer : out std_logic_vector (3 downto 0);
-            
+
             b_buffer_enable : out std_logic;
             b_buffer : out std_logic_vector (3 downto 0);
-    
+
             -- Microcontroler I/O
             a_in : in std_logic_vector (3 downto 0);
             b_in : in std_logic_vector (3 downto 0);
-    
+
             final_output : out std_logic_vector (7 downto 0)
+        );
+    end component;
+
+    component nbuffer is
+        generic (
+            N : integer := 8
+        );
+        port (
+            e1 : in std_logic_vector (N-1 downto 0);
+            reset : in std_logic;
+            enable : in std_logic;
+            clock : in std_logic;
+            s1 : out std_logic_vector (N-1 downto 0)
         );
     end component;
 
@@ -50,7 +62,7 @@ architecture dbus_out_test_arch of dbus_out_test is
 begin
 
     test_component : dbus
-    port map ( 
+    port map (
         cache_1_received => cache_1_received_sim,
         cache_1_emmited => cache_1_emmited_sim,
         cache_1_enable => cache_1_enable_sim,
@@ -69,16 +81,37 @@ begin
         final_output => final_output_sim
     );
 
-    proc : process	
+    a_in_sim <= "0001";
+    b_in_sim <= "0010";
+    cache_1_received_sim <= "00000001";
+    cache_2_received_sim <= "00000010";
+    alu_output_sim <= "00000100";
+
+    proc : process
     begin
-        cache_1_received_sim <= "00000001";
-        cache_2_received_sim <= "00000010";
-        alu_output_sim <= "00000100";
+
+        for route in 0 to 7 loop
+            routing_selection_sim <= std_logic_vector(to_unsigned(route, 4));
+            wait for 100 us;
+        end loop;
+
+        for route in 8 to 15 loop
+            routing_selection_sim <= std_logic_vector(to_unsigned(route, 4));
+            wait for 100 us;
+        end loop;
+        wait;
+
+    end process;
+
+    proc2 : process
+    begin
+
         for outp in 0 to 3 loop
             output_selection_sim <= std_logic_vector(to_unsigned(outp, 2));
             wait for 100 us;
         end loop;
-        wait;        
+        wait;
+
     end process;
 
 end architecture;

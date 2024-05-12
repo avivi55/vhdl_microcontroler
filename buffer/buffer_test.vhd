@@ -29,19 +29,17 @@ architecture buffer_test_arch of buffer_test is
     signal reset_sim, enable_sim, clock_sim : std_logic := '0';
 
     signal test_clk_sig: integer := 0;
-    signal test_tmp_sig: std_logic_vector(N-1 downto 0);
     signal tests_finished, test_enable_finished, test_reset_finished: boolean := false;
 
 
-    procedure test(test: boolean; false_string: string; true_string: string) is
+    procedure test(test: boolean; name: string) is
     begin
         if test then 
-            report true_string;
+            report name & ": test passed.";
         else 
-            report false_string severity error;
+            report name & ": test failed !" severity error;
         end if;        
     end procedure;
-
 
 begin
 
@@ -83,8 +81,7 @@ begin
         end if;
 
         if test_clk_sig = 3 then
-            assert s1_sim = "10" report "enable_on: test failed !" severity error;
-            report "enable_on: test passed";
+            test(s1_sim = "10", "enable on");
         end if;
         
         if test_clk_sig = 4 then
@@ -93,8 +90,7 @@ begin
         end if;
         
         if test_clk_sig = 5 then
-            assert  s1_sim = "10" report "enable_off: test failed !" severity error;
-            report "enable_off: test passed";
+            test(s1_sim = "10", "enable off");
 
             test_enable_finished <= true;
         end if;
@@ -104,7 +100,7 @@ begin
         end if;
 
         if test_clk_sig = 7 then
-            test(s1_sim = "00", "reset: test failed !", "reset: test passed");
+            test(s1_sim = "00", "reset");
 
             test_reset_finished <= true;
         end if;

@@ -1,13 +1,12 @@
--- code your testbench here
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 use ieee.std_logic_signed.all;
 
-entity alu_test is
+entity alu_wave is
 end entity;
 
-architecture alu_test_arch of alu_test is
+architecture alu_wave of alu_wave is
 
 	component alu is
         port (

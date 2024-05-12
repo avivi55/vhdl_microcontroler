@@ -1,0 +1,29 @@
+[*]
+[*] GTKWave Analyzer v3.3.118 (w)1999-2023 BSI
+[*] Sun May 12 19:19:37 2024
+[*]
+[dumpfile] "/home/jacques/Documents/EFREI/S6/circuit2/instructions/waves/wave.ghw"
+[dumpfile_mtime] "Sun May 12 19:09:21 2024"
+[dumpfile_size] 3342
+[savefile] "/home/jacques/Documents/EFREI/S6/circuit2/instructions/waves/res.gtkw"
+[timestart] 0
+[size] 2560 1502
+[pos] -27 -24
+*-39.287220 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] top.
+[treeopen] top.instructions_wave.
+[treeopen] top.instructions_wave.test_component.
+[sst_width] 341
+[signals_width] 283
+[sst_expanded] 1
+[sst_vpaned_height] 467
+@29
+#{top.instructions_wave.test_component.output_selection[1:0]} top.instructions_wave.test_component.output_selection[1] top.instructions_wave.test_component.output_selection[0]
+#{top.instructions_wave.test_component.route_selection[3:0]} top.instructions_wave.test_component.route_selection[3] top.instructions_wave.test_component.route_selection[2] top.instructions_wave.test_component.route_selection[1] top.instructions_wave.test_component.route_selection[0]
+#{top.instructions_wave.test_component.function_selection[3:0]} top.instructions_wave.test_component.function_selection[3] top.instructions_wave.test_component.function_selection[2] top.instructions_wave.test_component.function_selection[1] top.instructions_wave.test_component.function_selection[0]
+@28
+#{top.instructions_wave.test_component.program_choice[1:0]} top.instructions_wave.test_component.program_choice[1] top.instructions_wave.test_component.program_choice[0]
+@420
+top.instructions_wave.test_component.instruction_pointer
+[pattern_trace] 1
+[pattern_trace] 0
