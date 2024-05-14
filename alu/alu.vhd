@@ -41,7 +41,6 @@ begin
                 right_carry_emmited := a(0);
                 alu_output(2 downto 0) <= a(3 downto 1);
                 alu_output(3) <= left_carry_received;
-                -- alu_output(7 downto 4) <= (others => left_carry_received);
                 alu_output(7 downto 4) <= (others => '0');
                 
                 current_function <= rs_a;
@@ -49,7 +48,6 @@ begin
                 left_carry_emmited := a(3);
                 alu_output(3 downto 1) <= a(2 downto 0);
                 alu_output(0) <= right_carry_received;
-                -- alu_output(7 downto 4) <= (others => a(2));
                 alu_output(7 downto 4) <= (others => '0');
 
                 current_function <= ls_a;
@@ -57,7 +55,6 @@ begin
                 right_carry_emmited := b(0);
                 alu_output(2 downto 0) <= b(3 downto 1);
                 alu_output(3) <= left_carry_received;
-                -- alu_output(7 downto 4) <= (others => left_carry_received);
                 alu_output(7 downto 4) <= (others => '0');
 
                 current_function <= rs_b;
@@ -65,7 +62,6 @@ begin
                 left_carry_emmited := b(3);
                 alu_output(3 downto 1) <= b(2 downto 0);
                 alu_output(0) <= right_carry_received;
-                -- alu_output(7 downto 4) <= (others => b(2));
                 alu_output(7 downto 4) <= (others => '0');
 
                 current_function <= ls_b;
@@ -78,23 +74,23 @@ begin
 
                 current_function <= id_b;
             when "0111" =>
-                alu_output <= not bigger_a;
+                alu_output <= "0000" & not a;
 
                 current_function <= n_a;
             when "1000" =>
-                alu_output <= not bigger_b;
+                alu_output <= "0000" & not b;
 
                 current_function <= n_b;
             when "1001" =>
-                alu_output <= bigger_a and bigger_b;
+                alu_output <= "0000" & (a and b);
 
                 current_function <= a_and_b;
             when "1010" =>
-                alu_output <= bigger_a or bigger_b;
+                alu_output <= "0000" & (a or b);
 
                 current_function <= a_or_b;
             when "1011" =>
-                alu_output <= bigger_a xor bigger_b;
+                alu_output <= "0000" & (a xor b);
 
                 current_function <= a_xor_b;
             when "1100" =>

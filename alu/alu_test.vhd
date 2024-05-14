@@ -64,7 +64,6 @@ begin
         
         sr_in_sim <= "10";
         wait for 1 us;
-        -- test(s_sim = "11111001" and sr_out_sim = "00", "right shift A with carry");
         test(s_sim = "00001001" and sr_out_sim = "00", "right shift A with carry");
         sr_in_sim <= "00";
 
@@ -89,7 +88,6 @@ begin
 
         sr_in_sim <= "10";
         wait for 1 us;
-        -- test(s_sim = "1111100" and sr_out_sim = "01", "right shift B with carry");
         test(s_sim = "00001100" and sr_out_sim = "01", "right shift B with carry");
         sr_in_sim <= "00";
 
@@ -120,7 +118,7 @@ begin
         sel_fct_sim <= std_logic_vector(to_unsigned(current_function, 4));
 
         wait for 1 us;
-        test(s_sim = "11111101" and sr_out_sim = "00", "not a");
+        test(s_sim = "00001101" and sr_out_sim = "00", "not a");
 
         current_function := current_function + 1;
         sel_fct_sim <= std_logic_vector(to_unsigned(current_function, 4));
@@ -138,13 +136,13 @@ begin
         sel_fct_sim <= std_logic_vector(to_unsigned(current_function, 4));
 
         wait for 1 us;
-        test(s_sim = "11111011" and sr_out_sim = "00", "a or b");
+        test(s_sim = "00001011" and sr_out_sim = "00", "a or b");
 
         current_function := current_function + 1;
         sel_fct_sim <= std_logic_vector(to_unsigned(current_function, 4));
 
         wait for 1 us;
-        test(s_sim = "11111011" and sr_out_sim = "00", "a xor b");
+        test(s_sim = "00001011" and sr_out_sim = "00", "a xor b");
 
         current_function := current_function + 1;
         sel_fct_sim <= std_logic_vector(to_unsigned(current_function, 4));
