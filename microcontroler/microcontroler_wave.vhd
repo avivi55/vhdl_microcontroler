@@ -4,11 +4,11 @@ use ieee.numeric_std.all;
 use ieee.std_logic_signed.all;
 
 
-entity microcontroler_test is
+entity microcontroler_wave is
 end entity;
 
 
-architecture microcontroler_test_arch of microcontroler_test is
+architecture microcontroler_wave_arch of microcontroler_wave is
 
     component microcontroler is
         port (
@@ -48,28 +48,19 @@ begin
     clk : process
     begin
     	clock_sim <= '0';
-        wait for 0.5*PERIOD;
+        wait for 0.5*period;
         clock_sim <= '1';
-        wait for 0.5*PERIOD;
+        wait for 0.5*period;
 
-        if now = 120*PERIOD then
+        if now = 120*period then
         	wait;
         end if;
 
     end process;
 
 
-    proc : process
-    begin
-
-    	a_in_sim <= "0101";
-    	b_in_sim <= "0011";
-        carries_received_sim <= "00";
-
-        wait;
-
-    end process;
-
-
+    a_in_sim <= "0101";
+    b_in_sim <= "0011";
+    carries_received_sim <= "00";
 
 end architecture;

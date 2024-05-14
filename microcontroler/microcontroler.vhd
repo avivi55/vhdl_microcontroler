@@ -85,7 +85,6 @@ architecture microcontroler_arch of microcontroler is
     output_selection_sim,
     carries_emitted_sim,
     outputing_selection_sim,
-    program_choice_sim,
     carries_received_sim : std_logic_vector (1 downto 0) := (others => '0');
     
     signal 
@@ -110,7 +109,7 @@ begin
     port map (
         clock => clock,
         function_selection => function_selection_sim,
-        program_choice => program_choice_sim,
+        program_choice => "01",
         route_selection => route_selection_sim,
         output_selection => output_selection_sim
     );

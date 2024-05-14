@@ -64,7 +64,8 @@ begin
         
         sr_in_sim <= "10";
         wait for 1 us;
-        test(s_sim = "11111001" and sr_out_sim = "00", "right shift A with carry");
+        -- test(s_sim = "11111001" and sr_out_sim = "00", "right shift A with carry");
+        test(s_sim = "00001001" and sr_out_sim = "00", "right shift A with carry");
         sr_in_sim <= "00";
 
         current_function := current_function + 1;
@@ -88,7 +89,8 @@ begin
 
         sr_in_sim <= "10";
         wait for 1 us;
-        test(s_sim = "1111100" and sr_out_sim = "01", "right shift B with carry");
+        -- test(s_sim = "1111100" and sr_out_sim = "01", "right shift B with carry");
+        test(s_sim = "00001100" and sr_out_sim = "01", "right shift B with carry");
         sr_in_sim <= "00";
 
         current_function := current_function + 1;

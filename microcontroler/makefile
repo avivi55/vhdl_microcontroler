@@ -21,7 +21,7 @@ test:
 	@echo ""
 
 wave:
-	$(VHDL) --elab-run $(VHDLFLAGS) $(COMPONENT) --wave=waves/wave.ghw
+	$(VHDL) --elab-run $(VHDLFLAGS) $(COMPONENT)_wave --wave=waves/wave.ghw
 
 clean:
 	rm *.cf
