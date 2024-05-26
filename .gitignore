@@ -1,6 +1,5 @@
 *.drawio
 *.bkp
-*.cf
 *.code-workspace
 TE608*
-
+.vscode
