@@ -22,7 +22,7 @@ begin
     process(a, b, function_selection, carries_received)
         variable bigger_a, bigger_b: std_logic_vector(7 downto 0);
         
-        variable left_carry_received, right_carry_received, left_carry_emmited, right_carry_emmited: std_logic;
+        variable left_carry_received, right_carry_received, left_carry_emitted, right_carry_emitted: std_logic;
     begin
         bigger_a(7 downto 4) := (others => a(3));
         bigger_a(3 downto 0) := a;
@@ -33,33 +33,33 @@ begin
         left_carry_received := carries_received(1);
         right_carry_received := carries_received(0);
 
-        left_carry_emmited := '0';
-        right_carry_emmited := '0';
+        left_carry_emitted := '0';
+        right_carry_emitted := '0';
 
         case function_selection is
             when "0001" =>
-                right_carry_emmited := a(0);
+                right_carry_emitted := a(0);
                 alu_output(2 downto 0) <= a(3 downto 1);
                 alu_output(3) <= left_carry_received;
                 alu_output(7 downto 4) <= (others => '0');
                 
                 current_function <= rs_a;
             when "0010" => -- sur 4b
-                left_carry_emmited := a(3);
+                left_carry_emitted := a(3);
                 alu_output(3 downto 1) <= a(2 downto 0);
                 alu_output(0) <= right_carry_received;
                 alu_output(7 downto 4) <= (others => '0');
 
                 current_function <= ls_a;
             when "0011" =>
-                right_carry_emmited := b(0);
+                right_carry_emitted := b(0);
                 alu_output(2 downto 0) <= b(3 downto 1);
                 alu_output(3) <= left_carry_received;
                 alu_output(7 downto 4) <= (others => '0');
 
                 current_function <= rs_b;
             when "0100" => -- sur 4b
-                left_carry_emmited := b(3);
+                left_carry_emitted := b(3);
                 alu_output(3 downto 1) <= b(2 downto 0);
                 alu_output(0) <= right_carry_received;
                 alu_output(7 downto 4) <= (others => '0');
@@ -115,7 +115,7 @@ begin
                 current_function <= nop;
         end case;
         
-        carries_emitted <= left_carry_emmited & right_carry_emmited;
+        carries_emitted <= left_carry_emitted & right_carry_emitted;
     end process;
 
 end architecture;

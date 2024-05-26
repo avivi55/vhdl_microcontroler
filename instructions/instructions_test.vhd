@@ -10,7 +10,7 @@ end entity;
 
 architecture instructions_test_arch of instructions_test is
 
-    component instructions_buf is
+    component instructions is
         port (
             clock : in std_logic;
             program_choice : in std_logic_vector (1 downto 0);
@@ -58,7 +58,7 @@ begin
 
     test_clk_sig <= test_clk_sig + 1 when rising_edge(clock_sim) else test_clk_sig;
 
-    test_component : instructions_buf
+    test_component : instructions
     port map (
     	clock => clock_sim,
         program_choice => program_choice_sim,

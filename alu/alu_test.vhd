@@ -76,7 +76,7 @@ begin
 
         sr_in_sim <= "01";
         wait for 1 us;
-        test(s_sim = "00000101" and sr_out_sim = "00", "right shift A with carry");
+        test(s_sim = "00000101" and sr_out_sim = "00", "left shift A with carry");
         sr_in_sim <= "00";
 
         current_function := current_function + 1;

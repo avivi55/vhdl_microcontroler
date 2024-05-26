@@ -24,11 +24,11 @@ architecture microcontroler_wave_arch of microcontroler_wave is
 
     signal clock_sim : std_logic := '0';
     signal reset_sim : std_logic := '0';
-    signal a_in_sim : std_logic_vector (3 downto 0);
-    signal b_in_sim : std_logic_vector (3 downto 0);
-    signal carries_received_sim : std_logic_vector (1 downto 0);
+    signal a_in_sim : std_logic_vector (3 downto 0) := "0101";
+    signal b_in_sim : std_logic_vector (3 downto 0) := "0011";
+    signal carries_received_sim : std_logic_vector (1 downto 0) := "00";
+    signal carries_emitted_sim : std_logic_vector (1 downto 0) := "00";
     signal final_output_sim : std_logic_vector (7 downto 0);
-    signal carries_emitted_sim : std_logic_vector (1 downto 0);
 
     constant period : time := 100 us;
 
@@ -59,8 +59,5 @@ begin
     end process;
 
 
-    a_in_sim <= "0101";
-    b_in_sim <= "0011";
-    carries_received_sim <= "00";
 
 end architecture;

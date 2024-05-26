@@ -10,7 +10,7 @@ end entity;
 
 architecture instructions_wave_arch of instructions_wave is
 
-    component instructions_buf is
+    component instructions is
         port (
             clock : in std_logic;
             program_choice : in std_logic_vector (1 downto 0);
@@ -39,12 +39,16 @@ begin
         clock_sim <= '1';
         wait for 0.5*PERIOD;
 
+        if now = 10*PERIOD then
+        	program_choice_sim <= "01";
+        end if;
+
         if now = 128*PERIOD then
         	wait;
         end if;
     end process;
 
-    test_component : instructions_buf
+    test_component : instructions
     port map (
     	clock => clock_sim,
         program_choice => program_choice_sim,

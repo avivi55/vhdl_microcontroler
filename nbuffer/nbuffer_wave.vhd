@@ -3,10 +3,10 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 use ieee.std_logic_unsigned.all;
 
-entity buffer_wave is
+entity nbuffer_wave is
 end entity;
 
-architecture buffer_wave_arch of buffer_wave is
+architecture nbuffer_wave_arch of nbuffer_wave is
 
     component nbuffer is
         generic (

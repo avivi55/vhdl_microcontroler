@@ -1,2 +1,1 @@
-test:
-	$(MAKE) -C microcontroler all
+$(MAKE) -C microcontroler

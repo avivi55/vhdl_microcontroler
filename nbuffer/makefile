@@ -1,2 +1,2 @@
-COMPONENT=alu
+COMPONENT=nbuffer
 include ../generic.mk

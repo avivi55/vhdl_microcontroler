@@ -7,11 +7,11 @@ entity dbus is
     port (
         -- Caches
         cache_1_received : in std_logic_vector (7 downto 0); -- from buffer
-        cache_1_emmited : out std_logic_vector (7 downto 0);
+        cache_1_emitted : out std_logic_vector (7 downto 0);
         cache_1_enable : out std_logic;
         
         cache_2_received : in std_logic_vector (7 downto 0); -- from buffer
-        cache_2_emmited : out std_logic_vector (7 downto 0);
+        cache_2_emitted : out std_logic_vector (7 downto 0);
         cache_2_enable : out std_logic;
 
         -- Selections
@@ -138,7 +138,7 @@ begin
                 current_route <= alu_in_buffb_msb;
             
             when "0110" =>
-                cache_1_emmited <= alu_output;
+                cache_1_emitted <= alu_output;
                 cache_1_enable <= '1';
 
                 a_buffer_enable <= '0';
@@ -148,7 +148,7 @@ begin
                 current_route <= alu_in_cache1;
             
             when "0111" =>
-                cache_2_emmited <= alu_output;
+                cache_2_emitted <= alu_output;
                 cache_2_enable <= '1';
 
                 a_buffer_enable <= '0';

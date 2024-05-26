@@ -46,13 +46,13 @@ top.dbus_wave.test_component.b_buffer_enable
 @200
 -
 @22
-#{top.dbus_wave.test_component.cache_1_emmited[7:0]} top.dbus_wave.test_component.cache_1_emmited[7] top.dbus_wave.test_component.cache_1_emmited[6] top.dbus_wave.test_component.cache_1_emmited[5] top.dbus_wave.test_component.cache_1_emmited[4] top.dbus_wave.test_component.cache_1_emmited[3] top.dbus_wave.test_component.cache_1_emmited[2] top.dbus_wave.test_component.cache_1_emmited[1] top.dbus_wave.test_component.cache_1_emmited[0]
+#{top.dbus_wave.test_component.cache_1_emitted[7:0]} top.dbus_wave.test_component.cache_1_emitted[7] top.dbus_wave.test_component.cache_1_emitted[6] top.dbus_wave.test_component.cache_1_emitted[5] top.dbus_wave.test_component.cache_1_emitted[4] top.dbus_wave.test_component.cache_1_emitted[3] top.dbus_wave.test_component.cache_1_emitted[2] top.dbus_wave.test_component.cache_1_emitted[1] top.dbus_wave.test_component.cache_1_emitted[0]
 @28
 top.dbus_wave.test_component.cache_1_enable
 @200
 -
 @22
-#{top.dbus_wave.test_component.cache_2_emmited[7:0]} top.dbus_wave.test_component.cache_2_emmited[7] top.dbus_wave.test_component.cache_2_emmited[6] top.dbus_wave.test_component.cache_2_emmited[5] top.dbus_wave.test_component.cache_2_emmited[4] top.dbus_wave.test_component.cache_2_emmited[3] top.dbus_wave.test_component.cache_2_emmited[2] top.dbus_wave.test_component.cache_2_emmited[1] top.dbus_wave.test_component.cache_2_emmited[0]
+#{top.dbus_wave.test_component.cache_2_emitted[7:0]} top.dbus_wave.test_component.cache_2_emitted[7] top.dbus_wave.test_component.cache_2_emitted[6] top.dbus_wave.test_component.cache_2_emitted[5] top.dbus_wave.test_component.cache_2_emitted[4] top.dbus_wave.test_component.cache_2_emitted[3] top.dbus_wave.test_component.cache_2_emitted[2] top.dbus_wave.test_component.cache_2_emitted[1] top.dbus_wave.test_component.cache_2_emitted[0]
 @28
 top.dbus_wave.test_component.cache_2_enable
 @200

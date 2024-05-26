@@ -13,11 +13,11 @@ architecture dbus_test_arch of dbus_test is
         port (
             -- Caches
             cache_1_received : in std_logic_vector (7 downto 0); -- from buffer
-            cache_1_emmited : out std_logic_vector (7 downto 0);
+            cache_1_emitted : out std_logic_vector (7 downto 0);
             cache_1_enable : out std_logic;
             
             cache_2_received : in std_logic_vector (7 downto 0); -- from buffer
-            cache_2_emmited : out std_logic_vector (7 downto 0);
+            cache_2_emitted : out std_logic_vector (7 downto 0);
             cache_2_enable : out std_logic;
     
             -- Selections
@@ -41,22 +41,22 @@ architecture dbus_test_arch of dbus_test is
         );
     end component;
 
-    component nbuffer is
-        generic (
-            N : integer := 8
-        );
-        port (
-            e1 : in std_logic_vector (N-1 downto 0);
-            reset : in std_logic;
-            enable : in std_logic;
-            clock : in std_logic;
-            s1 : out std_logic_vector (N-1 downto 0)
-        );
-    end component;
+    -- component nbuffer is
+    --     generic (
+    --         N : integer := 8
+    --     );
+    --     port (
+    --         e1 : in std_logic_vector (N-1 downto 0);
+    --         reset : in std_logic;
+    --         enable : in std_logic;
+    --         clock : in std_logic;
+    --         s1 : out std_logic_vector (N-1 downto 0)
+    --     );
+    -- end component;
 
     signal cache_1_enable_sim, cache_2_enable_sim, a_buffer_enable_sim, b_buffer_enable_sim : std_logic := '0';
     signal output_selection_sim : std_logic_vector (1 downto 0) := "00";
-    signal cache_1_emmited_sim, cache_1_received_sim, cache_2_received_sim, cache_2_emmited_sim, alu_output_sim, final_output_sim : std_logic_vector (7 downto 0) := "00000000";
+    signal cache_1_emitted_sim, cache_1_received_sim, cache_2_received_sim, cache_2_emitted_sim, alu_output_sim, final_output_sim : std_logic_vector (7 downto 0) := "00000000";
     signal b_in_sim, a_in_sim, b_buffer_sim, a_buffer_sim, routing_selection_sim : std_logic_vector (3 downto 0) := "0000";
 
     procedure test(test: boolean; name: string) is
@@ -73,10 +73,10 @@ begin
     test_component : dbus
     port map ( 
         cache_1_received => cache_1_received_sim,
-        cache_1_emmited => cache_1_emmited_sim,
+        cache_1_emitted => cache_1_emitted_sim,
         cache_1_enable => cache_1_enable_sim,
         cache_2_received => cache_2_received_sim,
-        cache_2_emmited => cache_2_emmited_sim,
+        cache_2_emitted => cache_2_emitted_sim,
         cache_2_enable => cache_2_enable_sim,
         outputing_selection => output_selection_sim,
         routing_selection => routing_selection_sim,
@@ -187,7 +187,7 @@ begin
 
         wait for 1 us;
         test(
-            cache_1_emmited_sim = "00100111" and
+            cache_1_emitted_sim = "00100111" and
             cache_1_enable_sim = '1' and
 
             a_buffer_enable_sim = '0' and
@@ -201,7 +201,7 @@ begin
 
         wait for 1 us;
         test(
-            cache_2_emmited_sim = "00100111" and
+            cache_2_emitted_sim = "00100111" and
             cache_2_enable_sim = '1' and
 
             a_buffer_enable_sim = '0' and

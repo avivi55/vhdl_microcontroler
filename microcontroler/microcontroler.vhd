@@ -43,7 +43,7 @@ architecture microcontroler_arch of microcontroler is
         );
     end component;
 
-    component instructions_buf is
+    component instructions is
         port (
             clock : in std_logic;
             program_choice : in std_logic_vector (1 downto 0);
@@ -56,10 +56,10 @@ architecture microcontroler_arch of microcontroler is
     component dbus is
         port (
             cache_1_received : in std_logic_vector (7 downto 0); -- from buffer
-            cache_1_emmited : out std_logic_vector (7 downto 0);
+            cache_1_emitted : out std_logic_vector (7 downto 0);
             cache_1_enable : out std_logic;
             cache_2_received : in std_logic_vector (7 downto 0); -- from buffer
-            cache_2_emmited : out std_logic_vector (7 downto 0);
+            cache_2_emitted : out std_logic_vector (7 downto 0);
             cache_2_enable : out std_logic;
             outputing_selection : in std_logic_vector (1 downto 0); -- from buffer
             routing_selection : in std_logic_vector (3 downto 0); 
@@ -83,9 +83,9 @@ architecture microcontroler_arch of microcontroler is
     
     signal 
     output_selection_sim,
-    carries_emitted_sim,
+    carries_received_sim,
     outputing_selection_sim,
-    carries_received_sim : std_logic_vector (1 downto 0) := (others => '0');
+    carries_emitted_sim : std_logic_vector (1 downto 0) := (others => '0');
     
     signal 
     function_selection_sim,
@@ -97,19 +97,19 @@ architecture microcontroler_arch of microcontroler is
     functioning_selection_sim : std_logic_vector (3 downto 0) := (others => '0');
     
     signal 
-    cache_1_emmited_sim, 
+    cache_1_emitted_sim, 
     cache_1_received_sim,
     cache_2_received_sim,
-    cache_2_emmited_sim, 
+    cache_2_emitted_sim, 
     alu_output_sim : std_logic_vector (7 downto 0) := (others => '0');
 
 begin
 
-    intructions : instructions_buf
+    intructions : instructions
     port map (
         clock => clock,
         function_selection => function_selection_sim,
-        program_choice => "01",
+        program_choice => "11",
         route_selection => route_selection_sim,
         output_selection => output_selection_sim
     );
@@ -177,10 +177,10 @@ begin
     dbus_comp : dbus
     port map (
         cache_1_received => cache_1_received_sim,
-        cache_1_emmited => cache_1_emmited_sim,
+        cache_1_emitted => cache_1_emitted_sim,
         cache_1_enable => cache_1_enable_sim,
         cache_2_received => cache_2_received_sim,
-        cache_2_emmited => cache_2_emmited_sim,
+        cache_2_emitted => cache_2_emitted_sim,
         cache_2_enable => cache_2_enable_sim,
         outputing_selection => outputing_selection_sim,
         routing_selection => route_selection_sim,
@@ -200,7 +200,7 @@ begin
         clock => clock,
         reset => reset,
         enable => cache_1_enable_sim,
-        e1 => cache_1_emmited_sim,
+        e1 => cache_1_emitted_sim,
         s1 => cache_1_received_sim
     );
 
@@ -210,7 +210,7 @@ begin
         clock => clock,
         reset => reset,
         enable => cache_2_enable_sim,
-        e1 => cache_2_emmited_sim,
+        e1 => cache_2_emitted_sim,
         s1 => cache_2_received_sim
     );
 

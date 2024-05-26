@@ -3,10 +3,10 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 use ieee.std_logic_unsigned.all;
 
-entity buffer_test is
+entity nbuffer_test is
 end entity;
 
-architecture buffer_test_arch of buffer_test is
+architecture nbuffer_test_arch of nbuffer_test is
 
     component nbuffer is
         generic (
