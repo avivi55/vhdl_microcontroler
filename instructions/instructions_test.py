@@ -44,6 +44,7 @@ async def program_2(dut):
     dut.program_choice.value = LogicArray("01")
 
     await cycle(dut)
+    await cycle(dut)
 
     assert LogicArray(dut.function_selection.value) == LogicArray("0000")\
         and LogicArray(dut.route_selection.value)   == LogicArray("0000")\

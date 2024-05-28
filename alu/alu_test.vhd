@@ -112,7 +112,7 @@ begin
         sel_fct_sim <= std_logic_vector(to_unsigned(current_function, 4));
         
         wait for 1 us;
-        test(s_sim = "11111001" and sr_out_sim = "00", "B identity");
+        test(s_sim = "00001001" and sr_out_sim = "00", "B identity");
 
         current_function := current_function + 1;
         sel_fct_sim <= std_logic_vector(to_unsigned(current_function, 4));

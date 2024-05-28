@@ -27,7 +27,7 @@ pytest:
 	@echo ""
 	MODULE=$(COMPONENT)_test \
 	LIBPYTHON_LOC=$(shell cocotb-config --libpython) \
-	$(VHDL) -r $(VHDL_PRE_FLAGS) $(COMPONENT) $(VHDL_POST_FLAGS)
+	$(VHDL) -r $(VHDL_PRE_FLAGS) $(COMPONENT) $(VHDL_POST_FLAGS) --wave=waves/test.ghw
 	@echo ""
 	@echo "===========================END $(COMPONENT) TEST==========================="
 	@echo ""

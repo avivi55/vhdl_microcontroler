@@ -34,10 +34,18 @@ vhdtest:
 
 pytest:
 	@echo "=========================================GLOBAL TEST========================================="
-	MODULE=$(COMPONENT)_test \
+	@MODULE=$(COMPONENT)_test \
 	LIBPYTHON_LOC=$(shell cocotb-config --libpython) \
 	$(VHDL) -r $(VHDL_PRE_FLAGS) $(COMPONENT) $(VHDL_POST_FLAGS) --wave=waves/test.ghw
-
+	@MODULE=$(COMPONENT)_test \
+	LIBPYTHON_LOC=$(shell cocotb-config --libpython) \
+	@$(foreach comp,\
+		$(COMPONENTS),\
+		echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~START $(comp)~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";\
+		$(MAKE) work pytest clean -C ../$(comp);\
+		echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~END $(comp)~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";\
+		echo "";\
+	)
 	@echo "=========================================END GLOBAL TEST========================================="
 	@echo ""
 
@@ -48,11 +56,9 @@ wave:
 
 clean:
 	@rm *.cf
+ifdef VHDL_PYTEST
+	@rm -r ./__pycache__
+	@rm *.xml
+endif
 
-# @$(foreach comp,\
-# 	$(COMPONENTS),\
-# 	echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~START $(comp)~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";\
-# 	$(MAKE) work pytest clean -C ../$(comp);\
-# 	echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~END $(comp)~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";\
-# 	echo "";\
-# )
+

@@ -30,7 +30,6 @@ async def program_1(dut):
 
             assert LogicArray(dut.final_output.value) == LogicArray(a * b, Range(7,'downto',0))
 
-
             dut.program_choice.value = LogicArray("01")
             await n_cycles(dut, 1)
             dut.program_choice.value = LogicArray("00")
@@ -81,7 +80,3 @@ async def program_3(dut):
             dut.program_choice.value = LogicArray("00")
             await n_cycles(dut, 1)
             dut.program_choice.value = LogicArray("10")
-
-    
-
-
