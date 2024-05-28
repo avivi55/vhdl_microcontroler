@@ -1,0 +1,18 @@
+Le projet consiste en 5 composants :
+
+- le nbuffer, une reprise du TP1.
+    C’est un buffer assez simple. 
+    Le composant renvoie l’entrée sur front montant d’horloge.
+
+- l'alu. Il est responsable de la partie logique/arithmétique.
+    Il a deux entrées du 4bit et une sortie sur 8bit.
+
+- le dbus (interconnexion). Le dbus représente l’interconnexion. 
+    Il agit un peu comme un bus de données, il lie tout le monde entre eux et permet aux données d’être transmissent où on veut.
+
+- l'instructions. Le bloc d’instruction est un bloc synchrone qui émet ses signaux de sorties sur front descendant d’horloge.
+    Il stocke les trois programmes demandés dans le sujet en mémoire
+
+- le microcontroler. Ce composant est la synthèse de tous les autres composants avec des port map.
+
+veuillez vous référer au fichier au rapport du projet (dans le dossier rapport) pour plus de détailles. 

@@ -1,15 +1,15 @@
 [*]
 [*] GTKWave Analyzer v3.3.118 (w)1999-2023 BSI
-[*] Mon May 27 22:37:17 2024
+[*] Tue May 28 00:30:35 2024
 [*]
 [dumpfile] "/home/jacques/Documents/EFREI/S6/circuit2/microcontroler/waves/wave.ghw"
-[dumpfile_mtime] "Mon May 27 22:36:33 2024"
-[dumpfile_size] 6152
+[dumpfile_mtime] "Tue May 28 00:15:18 2024"
+[dumpfile_size] 4979
 [savefile] "/home/jacques/Documents/EFREI/S6/circuit2/microcontroler/waves/wave.gtkw"
-[timestart] 1456300000000
+[timestart] 0
 [size] 2560 1502
-[pos] -1 -1
-*-36.257248 1516500000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[pos] -27 -24
+*-36.257248 0 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] top.microcontroler_wave.test_component.a_buf.
 [treeopen] top.microcontroler_wave.test_component.b_buf.
 [treeopen] top.microcontroler_wave.test_component.intructions.
@@ -42,7 +42,7 @@ top.microcontroler_wave.test_component.final_output[0]
 @200
 -
 -In
-@c00029
+@c00025
 [color] 3
 #{top.microcontroler_wave.test_component.a_in[3:0]} top.microcontroler_wave.test_component.a_in[3] top.microcontroler_wave.test_component.a_in[2] top.microcontroler_wave.test_component.a_in[1] top.microcontroler_wave.test_component.a_in[0]
 @28
@@ -54,9 +54,9 @@ top.microcontroler_wave.test_component.a_in[2]
 top.microcontroler_wave.test_component.a_in[1]
 [color] 3
 top.microcontroler_wave.test_component.a_in[0]
-@1401209
+@1401205
 -group_end
-@c00029
+@c00024
 [color] 3
 #{top.microcontroler_wave.test_component.b_in[3:0]} top.microcontroler_wave.test_component.b_in[3] top.microcontroler_wave.test_component.b_in[2] top.microcontroler_wave.test_component.b_in[1] top.microcontroler_wave.test_component.b_in[0]
 @28
@@ -68,7 +68,7 @@ top.microcontroler_wave.test_component.b_in[2]
 top.microcontroler_wave.test_component.b_in[1]
 [color] 3
 top.microcontroler_wave.test_component.b_in[0]
-@1401209
+@1401204
 -group_end
 @28
 [color] 3
@@ -94,12 +94,12 @@ top.microcontroler_wave.test_component.dbus_comp.current_output
 @200
 -
 -BUF A
-@29
+@24
 #{top.microcontroler_wave.test_component.a_buf.s1[3:0]} top.microcontroler_wave.test_component.a_buf.s1[3] top.microcontroler_wave.test_component.a_buf.s1[2] top.microcontroler_wave.test_component.a_buf.s1[1] top.microcontroler_wave.test_component.a_buf.s1[0]
 @28
 [color] 3
 top.microcontroler_wave.test_component.a_buf.enable
-@c00029
+@c00024
 [color] 3
 #{top.microcontroler_wave.test_component.a_buf.e1[3:0]} top.microcontroler_wave.test_component.a_buf.e1[3] top.microcontroler_wave.test_component.a_buf.e1[2] top.microcontroler_wave.test_component.a_buf.e1[1] top.microcontroler_wave.test_component.a_buf.e1[0]
 @28
@@ -111,17 +111,17 @@ top.microcontroler_wave.test_component.a_buf.e1[2]
 top.microcontroler_wave.test_component.a_buf.e1[1]
 [color] 3
 top.microcontroler_wave.test_component.a_buf.e1[0]
-@1401209
+@1401204
 -group_end
 @200
 -
 -BUF B
-@29
+@24
 #{top.microcontroler_wave.test_component.b_buf.s1[3:0]} top.microcontroler_wave.test_component.b_buf.s1[3] top.microcontroler_wave.test_component.b_buf.s1[2] top.microcontroler_wave.test_component.b_buf.s1[1] top.microcontroler_wave.test_component.b_buf.s1[0]
 @28
 [color] 3
 top.microcontroler_wave.test_component.b_buf.enable
-@29
+@24
 [color] 3
 #{top.microcontroler_wave.test_component.b_buf.e1[3:0]} top.microcontroler_wave.test_component.b_buf.e1[3] top.microcontroler_wave.test_component.b_buf.e1[2] top.microcontroler_wave.test_component.b_buf.e1[1] top.microcontroler_wave.test_component.b_buf.e1[0]
 @200

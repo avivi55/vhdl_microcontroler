@@ -45,6 +45,7 @@
         Le schéma simplifié, montrant les nouvelles connexions, peut être trouvé dans le fichier \textbf{project-schema.pdf}.
 
         Le schéma n'est pas légendé, mais les entrées, sorties, dimensions des ports, nom des ports sont identifiables.
+        Même s'il n'est pas à jour, il permet de visualiser l'agencement du projet.
   
         Il est fait pour être lu en tandem avec le sujet original.
       }.
@@ -276,7 +277,7 @@
 
     \pagebreak
 
-    \question{LE RESULTAT FINAL}{
+    \question{LE RÉSULTAT FINAL}{
       On arrive enfin à la pièce maitresse du projet, le microcontrôleur.
 
       Dans le sujet, il nous est demandé de réaliser trois programmes pour le microcontrôleur.
@@ -321,5 +322,26 @@
     }
   }
 
-  \exercise{Conclusion}{}
+  \exercise{Conclusion}{
+    \question[]{}{
+      Je peux avec confiance, affirmé que le projet fonctionne. 
+      
+      De plus, nous avons eu l'opportunité d'expérimenter avec une carte FPGA\footnote{Xilinx Arty 35T}.
+      J'y ai testé l'ALU du projet, qui fonctionnait.
+
+      \medskip
+
+      Tous les tests sont reproduisibles.
+      Il suffit, comme indiqué en introduction, d'utiliser \textit{make}.
+      
+      Je conseillerais d'utiliser les tests pythons qui sont beaucoup plus exhaustifs et ayant un couvrage de toutes les possibilités.
+
+      Vous trouverez tous les résultats de rendu et des tests dans les dossiers respectif de tous les composants.
+      Les fichiers d'extension \inlinecode{.gtkw} sont déjà formatés par simplicité, il suffit de les ouvrir pour voir les signaux déjà organisés pour la visualisation.
+
+      \medskip
+
+      J'ai pu explorer en approfondissant mes nouvelles connaissances en VHDL et en programmation de FPGA.
+    }
+  }
 \end{document}
