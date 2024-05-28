@@ -1,0 +1,114 @@
+[*]
+[*] GTKWave Analyzer v3.3.118 (w)1999-2023 BSI
+[*] Mon May 27 20:56:20 2024
+[*]
+[dumpfile] "/home/jacques/Documents/EFREI/S6/circuit2/microcontroler/waves/test.ghw"
+[dumpfile_mtime] "Mon May 27 20:53:25 2024"
+[dumpfile_size] 12694
+[savefile] "/home/jacques/Documents/EFREI/S6/circuit2/microcontroler/waves/test.gtkw"
+[timestart] 0
+[size] 2560 1502
+[pos] -27 -24
+*-26.697214 272500000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[sst_width] 341
+[signals_width] 261
+[sst_expanded] 1
+[sst_vpaned_height] 466
+@28
+top.microcontroler.clock
+@421
+top.microcontroler.intructions.instruction_pointer
+@200
+-
+-Out
+@c00024
+#{top.microcontroler.final_output[7:0]} top.microcontroler.final_output[7] top.microcontroler.final_output[6] top.microcontroler.final_output[5] top.microcontroler.final_output[4] top.microcontroler.final_output[3] top.microcontroler.final_output[2] top.microcontroler.final_output[1] top.microcontroler.final_output[0]
+@28
+top.microcontroler.final_output[7]
+top.microcontroler.final_output[6]
+top.microcontroler.final_output[5]
+top.microcontroler.final_output[4]
+top.microcontroler.final_output[3]
+top.microcontroler.final_output[2]
+top.microcontroler.final_output[1]
+top.microcontroler.final_output[0]
+@1401200
+-group_end
+@28
+#{top.microcontroler.carries_emitted[1:0]} top.microcontroler.carries_emitted[1] top.microcontroler.carries_emitted[0]
+@200
+-
+-In
+@22
+[color] 3
+#{top.microcontroler.a_in[3:0]} top.microcontroler.a_in[3] top.microcontroler.a_in[2] top.microcontroler.a_in[1] top.microcontroler.a_in[0]
+[color] 3
+#{top.microcontroler.b_in[3:0]} top.microcontroler.b_in[3] top.microcontroler.b_in[2] top.microcontroler.b_in[1] top.microcontroler.b_in[0]
+@28
+[color] 3
+#{top.microcontroler.carries_received[1:0]} top.microcontroler.carries_received[1] top.microcontroler.carries_received[0]
+@200
+-
+-
+-INSTR
+@28
+[color] 5
+top.microcontroler.alu_comp.current_function
+[color] 5
+top.microcontroler.dbus_comp.current_route
+[color] 5
+top.microcontroler.dbus_comp.current_output
+[color] 5
+#{top.microcontroler.intructions.program_choice[1:0]} top.microcontroler.intructions.program_choice[1] top.microcontroler.intructions.program_choice[0]
+@200
+-
+-
+@24
+#{top.microcontroler.alu_comp.alu_output[7:0]} top.microcontroler.alu_comp.alu_output[7] top.microcontroler.alu_comp.alu_output[6] top.microcontroler.alu_comp.alu_output[5] top.microcontroler.alu_comp.alu_output[4] top.microcontroler.alu_comp.alu_output[3] top.microcontroler.alu_comp.alu_output[2] top.microcontroler.alu_comp.alu_output[1] top.microcontroler.alu_comp.alu_output[0]
+@200
+-
+-BUF A
+@22
+#{top.microcontroler.a_buf.s1[3:0]} top.microcontroler.a_buf.s1[3] top.microcontroler.a_buf.s1[2] top.microcontroler.a_buf.s1[1] top.microcontroler.a_buf.s1[0]
+@28
+[color] 3
+top.microcontroler.a_buf.enable
+@22
+[color] 3
+#{top.microcontroler.a_buf.e1[3:0]} top.microcontroler.a_buf.e1[3] top.microcontroler.a_buf.e1[2] top.microcontroler.a_buf.e1[1] top.microcontroler.a_buf.e1[0]
+@200
+-
+-BUF B
+@22
+#{top.microcontroler.b_buf.s1[3:0]} top.microcontroler.b_buf.s1[3] top.microcontroler.b_buf.s1[2] top.microcontroler.b_buf.s1[1] top.microcontroler.b_buf.s1[0]
+@28
+[color] 3
+top.microcontroler.b_buf.enable
+@22
+[color] 3
+#{top.microcontroler.b_buf.e1[3:0]} top.microcontroler.b_buf.e1[3] top.microcontroler.b_buf.e1[2] top.microcontroler.b_buf.e1[1] top.microcontroler.b_buf.e1[0]
+@200
+-
+-
+-CACHE 1
+@420
+#{top.microcontroler.cache1_buf.s1[7:0]} top.microcontroler.cache1_buf.s1[7] top.microcontroler.cache1_buf.s1[6] top.microcontroler.cache1_buf.s1[5] top.microcontroler.cache1_buf.s1[4] top.microcontroler.cache1_buf.s1[3] top.microcontroler.cache1_buf.s1[2] top.microcontroler.cache1_buf.s1[1] top.microcontroler.cache1_buf.s1[0]
+@28
+[color] 3
+top.microcontroler.cache1_buf.enable
+@420
+[color] 3
+#{top.microcontroler.cache1_buf.e1[7:0]} top.microcontroler.cache1_buf.e1[7] top.microcontroler.cache1_buf.e1[6] top.microcontroler.cache1_buf.e1[5] top.microcontroler.cache1_buf.e1[4] top.microcontroler.cache1_buf.e1[3] top.microcontroler.cache1_buf.e1[2] top.microcontroler.cache1_buf.e1[1] top.microcontroler.cache1_buf.e1[0]
+@200
+-
+-CACHE 2
+@24
+#{top.microcontroler.cache2_buf.s1[7:0]} top.microcontroler.cache2_buf.s1[7] top.microcontroler.cache2_buf.s1[6] top.microcontroler.cache2_buf.s1[5] top.microcontroler.cache2_buf.s1[4] top.microcontroler.cache2_buf.s1[3] top.microcontroler.cache2_buf.s1[2] top.microcontroler.cache2_buf.s1[1] top.microcontroler.cache2_buf.s1[0]
+@28
+[color] 3
+top.microcontroler.cache2_buf.enable
+@24
+[color] 3
+#{top.microcontroler.cache2_buf.e1[7:0]} top.microcontroler.cache2_buf.e1[7] top.microcontroler.cache2_buf.e1[6] top.microcontroler.cache2_buf.e1[5] top.microcontroler.cache2_buf.e1[4] top.microcontroler.cache2_buf.e1[3] top.microcontroler.cache2_buf.e1[2] top.microcontroler.cache2_buf.e1[1] top.microcontroler.cache2_buf.e1[0]
+[pattern_trace] 1
+[pattern_trace] 0

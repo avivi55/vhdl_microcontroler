@@ -1,6 +1,6 @@
 import cocotb
 from cocotb.triggers import Timer, FallingEdge, RisingEdge
-from cocotb.types import LogicArray
+from cocotb.types import LogicArray, Range
 from cocotb.clock import Clock
 
 async def wait(dut):
@@ -30,10 +30,15 @@ async def a_right_shift_no_carry(dut):
 
     dut.function_selection.value = LogicArray("0001")
     
-    await wait(dut)
+    for test_value in range(2**4):
+        dut.a.value = LogicArray(test_value, Range(3, 'downto', 0))
+        await wait(dut)
 
-    assert LogicArray(dut.alu_output.value) == LogicArray("00000001")\
-        and LogicArray(dut.carries_emitted.value) == LogicArray("00")
+        expected_value = test_value >> 1
+        expected_carry = test_value & 0b0001
+
+        assert LogicArray(dut.alu_output.value) == LogicArray(expected_value, Range(7, 'downto', 0))\
+            and LogicArray(dut.carries_emitted.value) == LogicArray(expected_carry, Range(1, 'downto', 0))
 
 @cocotb.test()
 async def a_right_shift_with_carry(dut):
@@ -42,10 +47,15 @@ async def a_right_shift_with_carry(dut):
     dut.function_selection.value = LogicArray("0001")
     dut.carries_received.value = LogicArray("11")
     
-    await wait(dut)
+    for test_value in range(2**4):
+        dut.a.value = LogicArray(test_value, Range(3, 'downto', 0))
+        await wait(dut)
 
-    assert LogicArray(dut.alu_output.value) == LogicArray("00001001")\
-        and LogicArray(dut.carries_emitted.value) == LogicArray("00")
+        expected_value = (test_value >> 1) | 0b1000
+        expected_carry = test_value & 0b0001
+
+        assert LogicArray(dut.alu_output.value) == LogicArray(expected_value, Range(7, 'downto', 0))\
+            and LogicArray(dut.carries_emitted.value) == LogicArray(expected_carry, Range(1, 'downto', 0))
 
 @cocotb.test()
 async def a_left_shift_no_carry(dut):
@@ -53,10 +63,15 @@ async def a_left_shift_no_carry(dut):
 
     dut.function_selection.value = LogicArray("0010")
     
-    await wait(dut)
+    for test_value in range(2**4):
+        dut.a.value = LogicArray(test_value, Range(3, 'downto', 0))
+        await wait(dut)
 
-    assert LogicArray(dut.alu_output.value) == LogicArray("00000100")\
-        and LogicArray(dut.carries_emitted.value) == LogicArray("00")
+        expected_value = (test_value << 1) & 0b00001111
+        expected_carry = (test_value & 0b1000) >> 2
+
+        assert LogicArray(dut.alu_output.value) == LogicArray(expected_value, Range(7, 'downto', 0))\
+            and LogicArray(dut.carries_emitted.value) == LogicArray(expected_carry, Range(1, 'downto', 0))
 
 @cocotb.test()
 async def a_left_shift_with_carry(dut):
@@ -65,10 +80,15 @@ async def a_left_shift_with_carry(dut):
     dut.function_selection.value = LogicArray("0010")
     dut.carries_received.value = LogicArray("11")
     
-    await wait(dut)
+    for test_value in range(2**4):
+        dut.a.value = LogicArray(test_value, Range(3, 'downto', 0))
+        await wait(dut)
 
-    assert LogicArray(dut.alu_output.value) == LogicArray("00000101")\
-        and LogicArray(dut.carries_emitted.value) == LogicArray("00")
+        expected_value = ((test_value << 1) & 0b00001111) | 0b0001
+        expected_carry = (test_value & 0b1000) >> 2
+
+        assert LogicArray(dut.alu_output.value) == LogicArray(expected_value, Range(7, 'downto', 0))\
+            and LogicArray(dut.carries_emitted.value) == LogicArray(expected_carry, Range(1, 'downto', 0))
 
 @cocotb.test()
 async def b_right_shift_no_carry(dut):
@@ -76,10 +96,15 @@ async def b_right_shift_no_carry(dut):
 
     dut.function_selection.value = LogicArray("0011")
     
-    await wait(dut)
+    for test_value in range(2**4):
+        dut.b.value = LogicArray(test_value, Range(3, 'downto', 0))
+        await wait(dut)
 
-    assert LogicArray(dut.alu_output.value) == LogicArray("00000100")\
-        and LogicArray(dut.carries_emitted.value) == LogicArray("01")
+        expected_value = test_value >> 1
+        expected_carry = test_value & 0b0001
+
+        assert LogicArray(dut.alu_output.value) == LogicArray(expected_value, Range(7, 'downto', 0))\
+            and LogicArray(dut.carries_emitted.value) == LogicArray(expected_carry, Range(1, 'downto', 0))
 
 @cocotb.test()
 async def b_right_shift_with_carry(dut):
@@ -88,10 +113,15 @@ async def b_right_shift_with_carry(dut):
     dut.function_selection.value = LogicArray("0011")
     dut.carries_received.value = LogicArray("11")
     
-    await wait(dut)
+    for test_value in range(2**4):
+        dut.b.value = LogicArray(test_value, Range(3, 'downto', 0))
+        await wait(dut)
 
-    assert LogicArray(dut.alu_output.value) == LogicArray("00001100")\
-        and LogicArray(dut.carries_emitted.value) == LogicArray("01")
+        expected_value = (test_value >> 1) | 0b1000
+        expected_carry = test_value & 0b0001
+
+        assert LogicArray(dut.alu_output.value) == LogicArray(expected_value, Range(7, 'downto', 0))\
+            and LogicArray(dut.carries_emitted.value) == LogicArray(expected_carry, Range(1, 'downto', 0))
 
 @cocotb.test()
 async def b_left_shift_no_carry(dut):
@@ -99,10 +129,15 @@ async def b_left_shift_no_carry(dut):
 
     dut.function_selection.value = LogicArray("0100")
     
-    await wait(dut)
+    for test_value in range(2**4):
+        dut.b.value = LogicArray(test_value, Range(3, 'downto', 0))
+        await wait(dut)
 
-    assert LogicArray(dut.alu_output.value) == LogicArray("00000010")\
-        and LogicArray(dut.carries_emitted.value) == LogicArray("10")
+        expected_value = (test_value << 1) & 0b00001111
+        expected_carry = (test_value & 0b1000) >> 2
+
+        assert LogicArray(dut.alu_output.value) == LogicArray(expected_value, Range(7, 'downto', 0))\
+            and LogicArray(dut.carries_emitted.value) == LogicArray(expected_carry, Range(1, 'downto', 0))
 
 @cocotb.test()
 async def b_left_shift_with_carry(dut):
@@ -111,10 +146,15 @@ async def b_left_shift_with_carry(dut):
     dut.function_selection.value = LogicArray("0100")
     dut.carries_received.value = LogicArray("11")
     
-    await wait(dut)
+    for test_value in range(2**4):
+        dut.b.value = LogicArray(test_value, Range(3, 'downto', 0))
+        await wait(dut)
 
-    assert LogicArray(dut.alu_output.value) == LogicArray("00000011")\
-        and LogicArray(dut.carries_emitted.value) == LogicArray("10")
+        expected_value = ((test_value << 1) & 0b00001111) | 0b0001
+        expected_carry = (test_value & 0b1000) >> 2
+
+        assert LogicArray(dut.alu_output.value) == LogicArray(expected_value, Range(7, 'downto', 0))\
+            and LogicArray(dut.carries_emitted.value) == LogicArray(expected_carry, Range(1, 'downto', 0))
 
 @cocotb.test()
 async def a_identity(dut):
@@ -122,10 +162,15 @@ async def a_identity(dut):
 
     dut.function_selection.value = LogicArray("0101")
     
-    await wait(dut)
+    for test_value in range(2**4):
+        dut.a.value = LogicArray(test_value, Range(3, 'downto', 0))
+        await wait(dut)
 
-    assert LogicArray(dut.alu_output.value) == LogicArray("00000010")\
-        and LogicArray(dut.carries_emitted.value) == LogicArray("00")
+        expected_value = test_value
+        expected_carry = 0
+
+        assert LogicArray(dut.alu_output.value) == LogicArray(expected_value, Range(7, 'downto', 0))\
+            and LogicArray(dut.carries_emitted.value) == LogicArray(expected_carry, Range(1, 'downto', 0))
 
 @cocotb.test()
 async def b_identity(dut):
@@ -133,10 +178,15 @@ async def b_identity(dut):
 
     dut.function_selection.value = LogicArray("0110")
     
-    await wait(dut)
+    for test_value in range(2**4):
+        dut.b.value = LogicArray(test_value, Range(3, 'downto', 0))
+        await wait(dut)
 
-    assert LogicArray(dut.alu_output.value) == LogicArray("11111001")\
-        and LogicArray(dut.carries_emitted.value) == LogicArray("00")
+        expected_value = test_value
+        expected_carry = 0
+
+        assert LogicArray(dut.alu_output.value) == LogicArray(expected_value, Range(7, 'downto', 0))\
+            and LogicArray(dut.carries_emitted.value) == LogicArray(expected_carry, Range(1, 'downto', 0))
 
 @cocotb.test()
 async def not_a(dut):
@@ -144,10 +194,15 @@ async def not_a(dut):
 
     dut.function_selection.value = LogicArray("0111")
     
-    await wait(dut)
+    for test_value in range(2**4):
+        dut.a.value = LogicArray(test_value, Range(3, 'downto', 0))
+        await wait(dut)
 
-    assert LogicArray(dut.alu_output.value) == LogicArray("00001101")\
-        and LogicArray(dut.carries_emitted.value) == LogicArray("00")
+        expected_value = ~test_value & 0b00001111
+        expected_carry = 0
+
+        assert LogicArray(dut.alu_output.value) == LogicArray(expected_value, Range(7, 'downto', 0))\
+            and LogicArray(dut.carries_emitted.value) == LogicArray(expected_carry, Range(1, 'downto', 0))
 
 @cocotb.test()
 async def not_b(dut):
@@ -155,10 +210,15 @@ async def not_b(dut):
 
     dut.function_selection.value = LogicArray("1000")
     
-    await wait(dut)
+    for test_value in range(2**4):
+        dut.b.value = LogicArray(test_value, Range(3, 'downto', 0))
+        await wait(dut)
 
-    assert LogicArray(dut.alu_output.value) == LogicArray("00000110")\
-        and LogicArray(dut.carries_emitted.value) == LogicArray("00")
+        expected_value = ~test_value & 0b00001111
+        expected_carry = 0
+
+        assert LogicArray(dut.alu_output.value) == LogicArray(expected_value, Range(7, 'downto', 0))\
+            and LogicArray(dut.carries_emitted.value) == LogicArray(expected_carry, Range(1, 'downto', 0))
 
 @cocotb.test()
 async def a_and_b(dut):
@@ -166,10 +226,17 @@ async def a_and_b(dut):
 
     dut.function_selection.value = LogicArray("1001")
     
-    await wait(dut)
+    for a in range(2**4):
+        dut.a.value = LogicArray(a, Range(3, 'downto', 0))
+        for b in range(2**4):
+            dut.b.value = LogicArray(b, Range(3, 'downto', 0))
+            await wait(dut)
 
-    assert LogicArray(dut.alu_output.value) == LogicArray("00000000")\
-        and LogicArray(dut.carries_emitted.value) == LogicArray("00")
+            expected_value = a & b
+            expected_carry = 0
+
+            assert LogicArray(dut.alu_output.value) == LogicArray(expected_value, Range(7, 'downto', 0))\
+                and LogicArray(dut.carries_emitted.value) == LogicArray(expected_carry, Range(1, 'downto', 0))
 
 @cocotb.test()
 async def a_or_b(dut):
@@ -177,10 +244,17 @@ async def a_or_b(dut):
 
     dut.function_selection.value = LogicArray("1010")
     
-    await wait(dut)
+    for a in range(2**4):
+        dut.a.value = LogicArray(a, Range(3, 'downto', 0))
+        for b in range(2**4):
+            dut.b.value = LogicArray(b, Range(3, 'downto', 0))
+            await wait(dut)
 
-    assert LogicArray(dut.alu_output.value) == LogicArray("00001011")\
-        and LogicArray(dut.carries_emitted.value) == LogicArray("00")
+            expected_value = a | b
+            expected_carry = 0
+
+            assert LogicArray(dut.alu_output.value) == LogicArray(expected_value, Range(7, 'downto', 0))\
+                and LogicArray(dut.carries_emitted.value) == LogicArray(expected_carry, Range(1, 'downto', 0))
 
 @cocotb.test()
 async def a_xor_b(dut):
@@ -188,22 +262,37 @@ async def a_xor_b(dut):
 
     dut.function_selection.value = LogicArray("1011")
     
-    await wait(dut)
+    for a in range(2**4):
+        dut.a.value = LogicArray(a, Range(3, 'downto', 0))
+        for b in range(2**4):
+            dut.b.value = LogicArray(b, Range(3, 'downto', 0))
+            await wait(dut)
 
-    assert LogicArray(dut.alu_output.value) == LogicArray("00001011")\
-        and LogicArray(dut.carries_emitted.value) == LogicArray("00")
+            expected_value = a ^ b
+            expected_carry = 0
+
+            assert LogicArray(dut.alu_output.value) == LogicArray(expected_value, Range(7, 'downto', 0))\
+                and LogicArray(dut.carries_emitted.value) == LogicArray(expected_carry, Range(1, 'downto', 0))
 
 @cocotb.test()
 async def a_plus_b_with_carry(dut):
     set_default(dut)
 
     dut.function_selection.value = LogicArray("1100")
-    dut.carries_received.value = LogicArray("01")
     
-    await wait(dut)
+    for a in range(-8, 8):
+        dut.a.value = LogicArray(a, Range(3, 'downto', 0))
+        for b in range(-8, 8):
+            dut.b.value = LogicArray(b, Range(3, 'downto', 0))
+            for carry in range(1):
+                dut.carries_received.value = LogicArray(carry, Range(1, 'downto', 0))
+                await wait(dut)
 
-    assert LogicArray(dut.alu_output.value) == LogicArray("11111100")\
-        and LogicArray(dut.carries_emitted.value) == LogicArray("00")
+                expected_value = a + b + carry
+                expected_carry = 0
+
+                assert LogicArray(dut.alu_output.value) == LogicArray(expected_value, Range(7, 'downto', 0))\
+                    and LogicArray(dut.carries_emitted.value) == LogicArray(expected_carry, Range(1, 'downto', 0))
 
 @cocotb.test()
 async def a_plus_b_no_carry(dut):
@@ -211,10 +300,18 @@ async def a_plus_b_no_carry(dut):
 
     dut.function_selection.value = LogicArray("1101")
     
-    await wait(dut)
+    for a in range(-8, 8):
+        dut.a.value = LogicArray(a, Range(3, 'downto', 0))
+        for b in range(-8, 8):
+            dut.b.value = LogicArray(b, Range(3, 'downto', 0))
 
-    assert LogicArray(dut.alu_output.value) == LogicArray("11111011")\
-        and LogicArray(dut.carries_emitted.value) == LogicArray("00")
+            await wait(dut)
+
+            expected_value = a + b
+            expected_carry = 0
+
+            assert LogicArray(dut.alu_output.value) == LogicArray(expected_value, Range(7, 'downto', 0))\
+                and LogicArray(dut.carries_emitted.value) == LogicArray(expected_carry, Range(1, 'downto', 0))
 
 @cocotb.test()
 async def a_minus_b(dut):
@@ -222,10 +319,18 @@ async def a_minus_b(dut):
 
     dut.function_selection.value = LogicArray("1110")
     
-    await wait(dut)
+    for a in range(-8, 8):
+        dut.a.value = LogicArray(a, Range(3, 'downto', 0))
+        for b in range(-8, 8):
+            dut.b.value = LogicArray(b, Range(3, 'downto', 0))
 
-    assert LogicArray(dut.alu_output.value) == LogicArray("00001001")\
-        and LogicArray(dut.carries_emitted.value) == LogicArray("00")
+            await wait(dut)
+
+            expected_value = a - b
+            expected_carry = 0
+
+            assert LogicArray(dut.alu_output.value) == LogicArray(expected_value, Range(7, 'downto', 0))\
+                and LogicArray(dut.carries_emitted.value) == LogicArray(expected_carry, Range(1, 'downto', 0))
 
 @cocotb.test()
 async def a_times_b(dut):
@@ -233,7 +338,15 @@ async def a_times_b(dut):
 
     dut.function_selection.value = LogicArray("1111")
     
-    await wait(dut)
+    for a in range(-8, 8):
+        dut.a.value = LogicArray(a, Range(3, 'downto', 0))
+        for b in range(-8, 8):
+            dut.b.value = LogicArray(b, Range(3, 'downto', 0))
 
-    assert LogicArray(dut.alu_output.value) == LogicArray("11110010")\
-        and LogicArray(dut.carries_emitted.value) == LogicArray("00")
+            await wait(dut)
+
+            expected_value = a * b
+            expected_carry = 0
+
+            assert LogicArray(dut.alu_output.value) == LogicArray(expected_value, Range(7, 'downto', 0))\
+                and LogicArray(dut.carries_emitted.value) == LogicArray(expected_carry, Range(1, 'downto', 0))

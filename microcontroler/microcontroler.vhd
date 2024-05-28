@@ -12,6 +12,7 @@ entity microcontroler is
         a_in : in std_logic_vector (3 downto 0);
         b_in : in std_logic_vector (3 downto 0);
         carries_received : in std_logic_vector (1 downto 0);
+        program_choice : in std_logic_vector (1 downto 0);
         
         final_output : out std_logic_vector (7 downto 0);
         carries_emitted : out std_logic_vector (1 downto 0)
@@ -61,7 +62,7 @@ architecture microcontroler_arch of microcontroler is
             cache_2_received : in std_logic_vector (7 downto 0); -- from buffer
             cache_2_emitted : out std_logic_vector (7 downto 0);
             cache_2_enable : out std_logic;
-            outputing_selection : in std_logic_vector (1 downto 0); -- from buffer
+            outputting_selection : in std_logic_vector (1 downto 0); -- from buffer
             routing_selection : in std_logic_vector (3 downto 0); 
             alu_output : in std_logic_vector (7 downto 0);
             a_buffer_enable : out std_logic;
@@ -84,7 +85,7 @@ architecture microcontroler_arch of microcontroler is
     signal 
     output_selection_sim,
     carries_received_sim,
-    outputing_selection_sim,
+    outputting_selection_sim,
     carries_emitted_sim : std_logic_vector (1 downto 0) := (others => '0');
     
     signal 
@@ -109,7 +110,7 @@ begin
     port map (
         clock => clock,
         function_selection => function_selection_sim,
-        program_choice => "11",
+        program_choice => program_choice,
         route_selection => route_selection_sim,
         output_selection => output_selection_sim
     );
@@ -121,7 +122,7 @@ begin
         reset => reset,
         enable => '1',
         e1 => output_selection_sim,
-        s1 => outputing_selection_sim
+        s1 => outputting_selection_sim
     );
 
     fn_sel_buf : nbuffer
@@ -182,7 +183,7 @@ begin
         cache_2_received => cache_2_received_sim,
         cache_2_emitted => cache_2_emitted_sim,
         cache_2_enable => cache_2_enable_sim,
-        outputing_selection => outputing_selection_sim,
+        outputting_selection => outputting_selection_sim,
         routing_selection => route_selection_sim,
         alu_output => alu_output_sim,
         a_buffer_enable => a_buffer_enable_sim,

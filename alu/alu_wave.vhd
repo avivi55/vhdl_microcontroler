@@ -41,13 +41,13 @@ begin
         for fct in 0 to 15 loop
             for a in -8 to 7 loop
                 for b in -8 to 7 loop
-                    for sr in 0 to 3 loop
+                    for sr in 0 to 1 loop
                         sel_fct_sim <= std_logic_vector(to_unsigned(fct,4));
                         a_sim <= std_logic_vector(to_signed(a,4));
                         b_sim <= std_logic_vector(to_signed(b,4));
-                        sr_in_sim <= std_logic_vector(to_unsigned(sr,2));
+                        sr_in_sim <= std_logic_vector(to_unsigned(3*sr,2));
                         
-                        wait for 100 us;
+                        wait for 10 ns;
                     end loop;
                 end loop;
             end loop;

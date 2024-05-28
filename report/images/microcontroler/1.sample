@@ -1,0 +1,14 @@
+dut.program_choice.value = LogicArray("00")
+for a in range(-8, 8):
+    for b in range(-8, 8):
+        reset(dut)
+        dut.a_in.value = LogicArray(a, Range(3, 'downto', 0))
+        dut.b_in.value = LogicArray(b, Range(3, 'downto', 0))
+
+        await n_cycles(dut, 10)
+
+        assert LogicArray(dut.final_output.value) == LogicArray(a * b, Range(7,'downto',0))
+
+        dut.program_choice.value = LogicArray("01")
+        await n_cycles(dut, 1)
+        dut.program_choice.value = LogicArray("00")

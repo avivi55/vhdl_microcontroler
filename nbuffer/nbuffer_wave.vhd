@@ -21,7 +21,7 @@ architecture nbuffer_wave_arch of nbuffer_wave is
         );
     end component;
 
-    constant N : integer := 4;
+    constant N : integer := 2;
 
     constant PERIOD : time := 100 us;
 
@@ -49,7 +49,7 @@ begin
         clock_sim <= '1';
         wait for 0.5*PERIOD;
 
-        if now = (8*(2**N))*PERIOD then
+        if now = (8*(N))*PERIOD then
             wait;
         end if;
 
@@ -66,7 +66,7 @@ begin
                     enable_sim <= to_unsigned(j,1)(0);
                     reset_sim <= to_unsigned(i,1)(0);
 
-                    wait for 2*PERIOD;
+                    wait for PERIOD;
                 end loop;
             end loop;
         end loop;

@@ -78,7 +78,7 @@ async def alu_lsb_in_buf_b(dut):
     
     await wait(dut)
 
-    assert LogicArray(dut.b_buffer.value)         == LogicArray("0111")\
+    assert  LogicArray(dut.b_buffer.value)         == LogicArray("0111")\
         and LogicArray(dut.a_buffer_enable.value) == LogicArray("0")\
         and LogicArray(dut.b_buffer_enable.value) == LogicArray("1")\
         and LogicArray(dut.cache_1_enable.value)  == LogicArray("0")\
@@ -237,3 +237,39 @@ async def cache_2_msb_in_buf_b(dut):
         and LogicArray(dut.b_buffer_enable.value) == LogicArray("1")\
         and LogicArray(dut.cache_1_enable.value)  == LogicArray("0")\
         and LogicArray(dut.cache_2_enable.value)  == LogicArray("0")
+
+
+# OUTPUT SELECTION
+
+
+@cocotb.test()
+async def final_output_is_none(dut):
+    set_default(dut)
+    dut.outputting_selection.value = LogicArray("00")
+    
+    await wait(dut)
+    assert LogicArray(dut.final_output.value) == LogicArray("00000000")
+
+@cocotb.test()
+async def final_output_is_cache_1(dut):
+    set_default(dut)
+    dut.outputting_selection.value = LogicArray("01")
+    
+    await wait(dut)
+    assert LogicArray(dut.final_output.value) == LogicArray(dut.cache_1_received.value)
+
+@cocotb.test()
+async def final_output_is_cache_2(dut):
+    set_default(dut)
+    dut.outputting_selection.value = LogicArray("10")
+    
+    await wait(dut)
+    assert LogicArray(dut.final_output.value) == LogicArray(dut.cache_2_received.value)
+
+@cocotb.test()
+async def final_output_is_alu_output(dut):
+    set_default(dut)
+    dut.outputting_selection.value = LogicArray("11")
+    
+    await wait(dut)
+    assert LogicArray(dut.final_output.value) == LogicArray(dut.alu_output.value)

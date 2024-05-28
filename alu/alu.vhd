@@ -66,11 +66,11 @@ begin
 
                 current_function <= ls_b;
             when "0101" =>
-                alu_output <= bigger_a;
+                alu_output <= "0000" & a;
 
                 current_function <= id_a;
             when "0110" =>
-                alu_output <= bigger_b;
+                alu_output <= "0000" & b;
 
                 current_function <= id_b;
             when "0111" =>

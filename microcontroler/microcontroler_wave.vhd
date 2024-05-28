@@ -17,6 +17,7 @@ architecture microcontroler_wave_arch of microcontroler_wave is
             a_in : in std_logic_vector (3 downto 0);
             b_in : in std_logic_vector (3 downto 0);
             carries_received : in std_logic_vector (1 downto 0);
+            program_choice : in std_logic_vector (1 downto 0);
             final_output : out std_logic_vector (7 downto 0);
             carries_emitted : out std_logic_vector (1 downto 0)
         );
@@ -24,8 +25,8 @@ architecture microcontroler_wave_arch of microcontroler_wave is
 
     signal clock_sim : std_logic := '0';
     signal reset_sim : std_logic := '0';
-    signal a_in_sim : std_logic_vector (3 downto 0) := "0101";
-    signal b_in_sim : std_logic_vector (3 downto 0) := "0011";
+    signal a_in_sim : std_logic_vector (3 downto 0) := "0111";
+    signal b_in_sim : std_logic_vector (3 downto 0) := "0110";
     signal carries_received_sim : std_logic_vector (1 downto 0) := "00";
     signal carries_emitted_sim : std_logic_vector (1 downto 0) := "00";
     signal final_output_sim : std_logic_vector (7 downto 0);
@@ -42,7 +43,8 @@ begin
         b_in => b_in_sim,
         carries_received => carries_received_sim,
         final_output => final_output_sim,
-        carries_emitted => carries_emitted_sim
+        carries_emitted => carries_emitted_sim,
+        program_choice => "00"
     );
 
     clk : process

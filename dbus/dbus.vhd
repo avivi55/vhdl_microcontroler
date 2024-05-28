@@ -15,7 +15,7 @@ entity dbus is
         cache_2_enable : out std_logic;
 
         -- Selections
-        outputing_selection : in std_logic_vector (1 downto 0); -- from buffer
+        outputting_selection : in std_logic_vector (1 downto 0); -- from buffer
         routing_selection : in std_logic_vector (3 downto 0); 
 
         -- ALU (& input buffers)
@@ -62,9 +62,9 @@ architecture dbus_arch of dbus is
     signal current_route: route := a_in_buffa;
 
 begin
-    output_selector: process(outputing_selection, alu_output, cache_1_received, cache_2_received)
+    output_selector: process(outputting_selection, alu_output, cache_1_received, cache_2_received)
     begin
-        case outputing_selection is
+        case outputting_selection is
             when "01" =>
                 final_output <= cache_1_received;
                 current_output <= cache1;

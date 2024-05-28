@@ -1,68 +1,78 @@
 [*]
 [*] GTKWave Analyzer v3.3.118 (w)1999-2023 BSI
-[*] Sun May 12 17:06:57 2024
+[*] Mon May 27 18:08:26 2024
 [*]
 [dumpfile] "/home/jacques/Documents/EFREI/S6/circuit2/dbus/waves/wave.ghw"
-[dumpfile_mtime] "Sun May 12 17:00:46 2024"
-[dumpfile_size] 1860
+[dumpfile_mtime] "Mon May 27 15:46:10 2024"
+[dumpfile_size] 1659
 [savefile] "/home/jacques/Documents/EFREI/S6/circuit2/dbus/waves/wave.gtkw"
 [timestart] 0
 [size] 2560 1502
 [pos] -27 -24
-*-37.166866 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+*-37.166866 0 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] top.
 [treeopen] top.dbus_wave.
 [treeopen] top.dbus_wave.test_component.
-[sst_width] 111
-[signals_width] 347
+[sst_width] 50
+[signals_width] 305
 [sst_expanded] 0
 [sst_vpaned_height] 1035
-@22
-#{top.dbus_wave.test_component.final_output[7:0]} top.dbus_wave.test_component.final_output[7] top.dbus_wave.test_component.final_output[6] top.dbus_wave.test_component.final_output[5] top.dbus_wave.test_component.final_output[4] top.dbus_wave.test_component.final_output[3] top.dbus_wave.test_component.final_output[2] top.dbus_wave.test_component.final_output[1] top.dbus_wave.test_component.final_output[0]
-#{top.dbus_wave.test_component.alu_output[7:0]} top.dbus_wave.test_component.alu_output[7] top.dbus_wave.test_component.alu_output[6] top.dbus_wave.test_component.alu_output[5] top.dbus_wave.test_component.alu_output[4] top.dbus_wave.test_component.alu_output[3] top.dbus_wave.test_component.alu_output[2] top.dbus_wave.test_component.alu_output[1] top.dbus_wave.test_component.alu_output[0]
 @200
--
+-Output selection
 @22
 [color] 3
-#{top.dbus_wave.test_component.a_in[3:0]} top.dbus_wave.test_component.a_in[3] top.dbus_wave.test_component.a_in[2] top.dbus_wave.test_component.a_in[1] top.dbus_wave.test_component.a_in[0]
-[color] 3
-#{top.dbus_wave.test_component.b_in[3:0]} top.dbus_wave.test_component.b_in[3] top.dbus_wave.test_component.b_in[2] top.dbus_wave.test_component.b_in[1] top.dbus_wave.test_component.b_in[0]
+#{top.dbus_wave.test_component.alu_output[7:0]} top.dbus_wave.test_component.alu_output[7] top.dbus_wave.test_component.alu_output[6] top.dbus_wave.test_component.alu_output[5] top.dbus_wave.test_component.alu_output[4] top.dbus_wave.test_component.alu_output[3] top.dbus_wave.test_component.alu_output[2] top.dbus_wave.test_component.alu_output[1] top.dbus_wave.test_component.alu_output[0]
 [color] 3
 #{top.dbus_wave.test_component.cache_1_received[7:0]} top.dbus_wave.test_component.cache_1_received[7] top.dbus_wave.test_component.cache_1_received[6] top.dbus_wave.test_component.cache_1_received[5] top.dbus_wave.test_component.cache_1_received[4] top.dbus_wave.test_component.cache_1_received[3] top.dbus_wave.test_component.cache_1_received[2] top.dbus_wave.test_component.cache_1_received[1] top.dbus_wave.test_component.cache_1_received[0]
 [color] 3
 #{top.dbus_wave.test_component.cache_2_received[7:0]} top.dbus_wave.test_component.cache_2_received[7] top.dbus_wave.test_component.cache_2_received[6] top.dbus_wave.test_component.cache_2_received[5] top.dbus_wave.test_component.cache_2_received[4] top.dbus_wave.test_component.cache_2_received[3] top.dbus_wave.test_component.cache_2_received[2] top.dbus_wave.test_component.cache_2_received[1] top.dbus_wave.test_component.cache_2_received[0]
 @200
 -
-@22
-#{top.dbus_wave.test_component.a_buffer[3:0]} top.dbus_wave.test_component.a_buffer[3] top.dbus_wave.test_component.a_buffer[2] top.dbus_wave.test_component.a_buffer[1] top.dbus_wave.test_component.a_buffer[0]
+@420
+[color] 5
+top.dbus_wave.test_component.current_output
 @28
+[color] 5
+#{top.dbus_wave.test_component.outputting_selection[1:0]} top.dbus_wave.test_component.outputting_selection[1] top.dbus_wave.test_component.outputting_selection[0]
+@200
+-
+@23
+#{top.dbus_wave.test_component.final_output[7:0]} top.dbus_wave.test_component.final_output[7] top.dbus_wave.test_component.final_output[6] top.dbus_wave.test_component.final_output[5] top.dbus_wave.test_component.final_output[4] top.dbus_wave.test_component.final_output[3] top.dbus_wave.test_component.final_output[2] top.dbus_wave.test_component.final_output[1] top.dbus_wave.test_component.final_output[0]
+@200
+-
+-Route selection
+@28
+[color] 3
+#{top.dbus_wave.test_component.a_in[3:0]} top.dbus_wave.test_component.a_in[3] top.dbus_wave.test_component.a_in[2] top.dbus_wave.test_component.a_in[1] top.dbus_wave.test_component.a_in[0]
+[color] 3
+#{top.dbus_wave.test_component.b_in[3:0]} top.dbus_wave.test_component.b_in[3] top.dbus_wave.test_component.b_in[2] top.dbus_wave.test_component.b_in[1] top.dbus_wave.test_component.b_in[0]
+@200
+-
+@420
+[color] 5
+top.dbus_wave.test_component.current_route
+@28
+[color] 5
+#{top.dbus_wave.test_component.routing_selection[3:0]} top.dbus_wave.test_component.routing_selection[3] top.dbus_wave.test_component.routing_selection[2] top.dbus_wave.test_component.routing_selection[1] top.dbus_wave.test_component.routing_selection[0]
+@200
+-
+@28
+#{top.dbus_wave.test_component.a_buffer[3:0]} top.dbus_wave.test_component.a_buffer[3] top.dbus_wave.test_component.a_buffer[2] top.dbus_wave.test_component.a_buffer[1] top.dbus_wave.test_component.a_buffer[0]
 top.dbus_wave.test_component.a_buffer_enable
 @200
 -
-@22
-#{top.dbus_wave.test_component.b_buffer[3:0]} top.dbus_wave.test_component.b_buffer[3] top.dbus_wave.test_component.b_buffer[2] top.dbus_wave.test_component.b_buffer[1] top.dbus_wave.test_component.b_buffer[0]
 @28
+#{top.dbus_wave.test_component.b_buffer[3:0]} top.dbus_wave.test_component.b_buffer[3] top.dbus_wave.test_component.b_buffer[2] top.dbus_wave.test_component.b_buffer[1] top.dbus_wave.test_component.b_buffer[0]
 top.dbus_wave.test_component.b_buffer_enable
 @200
 -
-@22
-#{top.dbus_wave.test_component.cache_1_emitted[7:0]} top.dbus_wave.test_component.cache_1_emitted[7] top.dbus_wave.test_component.cache_1_emitted[6] top.dbus_wave.test_component.cache_1_emitted[5] top.dbus_wave.test_component.cache_1_emitted[4] top.dbus_wave.test_component.cache_1_emitted[3] top.dbus_wave.test_component.cache_1_emitted[2] top.dbus_wave.test_component.cache_1_emitted[1] top.dbus_wave.test_component.cache_1_emitted[0]
 @28
+#{top.dbus_wave.test_component.cache_1_emitted[7:0]} top.dbus_wave.test_component.cache_1_emitted[7] top.dbus_wave.test_component.cache_1_emitted[6] top.dbus_wave.test_component.cache_1_emitted[5] top.dbus_wave.test_component.cache_1_emitted[4] top.dbus_wave.test_component.cache_1_emitted[3] top.dbus_wave.test_component.cache_1_emitted[2] top.dbus_wave.test_component.cache_1_emitted[1] top.dbus_wave.test_component.cache_1_emitted[0]
 top.dbus_wave.test_component.cache_1_enable
 @200
 -
-@22
-#{top.dbus_wave.test_component.cache_2_emitted[7:0]} top.dbus_wave.test_component.cache_2_emitted[7] top.dbus_wave.test_component.cache_2_emitted[6] top.dbus_wave.test_component.cache_2_emitted[5] top.dbus_wave.test_component.cache_2_emitted[4] top.dbus_wave.test_component.cache_2_emitted[3] top.dbus_wave.test_component.cache_2_emitted[2] top.dbus_wave.test_component.cache_2_emitted[1] top.dbus_wave.test_component.cache_2_emitted[0]
 @28
+#{top.dbus_wave.test_component.cache_2_emitted[7:0]} top.dbus_wave.test_component.cache_2_emitted[7] top.dbus_wave.test_component.cache_2_emitted[6] top.dbus_wave.test_component.cache_2_emitted[5] top.dbus_wave.test_component.cache_2_emitted[4] top.dbus_wave.test_component.cache_2_emitted[3] top.dbus_wave.test_component.cache_2_emitted[2] top.dbus_wave.test_component.cache_2_emitted[1] top.dbus_wave.test_component.cache_2_emitted[0]
 top.dbus_wave.test_component.cache_2_enable
-@200
--
-@421
-[color] 5
-top.dbus_wave.test_component.current_output
-[color] 5
-top.dbus_wave.test_component.current_route
-@200
--
 [pattern_trace] 1
 [pattern_trace] 0
