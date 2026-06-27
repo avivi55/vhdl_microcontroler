@@ -61,4 +61,3 @@ ifdef VHDL_PYTEST
 	@rm *.xml
 endif
 
-

@@ -46,9 +46,8 @@ begin
                 current_function <= rs_a;
             when "0010" => -- sur 4b
                 left_carry_emitted := a(3);
-                alu_output(3 downto 1) <= a(2 downto 0);
+                alu_output <= "0000" & std_logic_vector(unsigned(a) sll 1);
                 alu_output(0) <= right_carry_received;
-                alu_output(7 downto 4) <= (others => '0');
 
                 current_function <= ls_a;
             when "0011" =>
